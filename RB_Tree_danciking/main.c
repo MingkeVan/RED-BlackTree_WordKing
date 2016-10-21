@@ -341,41 +341,54 @@ void RB_DELETE_FIXUP(Root *root,Node *x)
 {
 
     Node *w;
+
+    ///替换后的结点x为黑色 并且x不是root结点 循环进行
     while(x != root->node && x->color == 1)
     {
+        ///x为左儿子
         if(x == x->parent->left)
         {
+            ///将w看做x的兄弟
             w = x->parent->right;
+            ///case1：如果x的兄弟是红色
             if(w->color == 0)
             {
-                ///case1
+                ///case1： 把w的颜色换为黑色 w和x的父结点颜色改为红色 然后进行左旋操作，以x的父结点为轴 然后把
                 w->color = 1;
                 x->parent->color = 0;
                 LEFT_ROTATE(root,x->parent);
+
+                ///再把x的兄弟赋给w 其实现在w是原w的左儿子 肯定是黑的 因为经历了左旋操作
                 w = x->parent->right;
             }
+
+            ///case2: （现在w是黑的） 同时w的两个孩子颜色都为黑
             if(w->left->color == 1 && w->right->color == 1)
             {
-                ///case2
+                ///case2 把w的颜色换成红色 当前节点x移到x的父结点
                 w->color = 0;
                 x = x->parent;
             }
 
-            ///case3
-            else if(x->right->color == 1)
+            ///case3：w的右孩子是黑色的
+            else if(w->right->color == 1)
                 {
+                    ///把w的左孩子也设为黑色 w本身的颜色设为红色 进行以w为轴的右旋操作
                     w->left->color = 1;
                     w->color = 0;
                     RIGHT_ROTATE(root,w);
+                    ///把w再次设为x的右兄弟
                     w = x->parent->right;
                 }
 
-                ///case4
+                ///case4 x的右孩子是红色的
+                ///把w的颜色设为和x的父结点的颜色相同，再把父节点的颜色设为黑色 w的右孩子也设为黑色 进行左旋操作
                 w->color = x->parent->color;
                 x->parent->color = 1;
                 w->right->color = 1;
                 LEFT_ROTATE(root,x->parent);
-                x = root;
+                ///把x设为root结点
+                x = root->node;
         }
         ///x为右孩子
         else
