@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 ///project目的：一个背单词软件
 ///数据结构用红黑树 :红黑树的基本操作是添加、删除和旋转。
 /*包含五个功能：
@@ -14,13 +15,19 @@
 #define RED 0
 #define BLACK 1
 
+
+
 typedef int type;
+typedef char typestring;
 ///红黑树的定义:包含父结点，左孩子，右孩子 以及当前节点的颜色和值（key）
 ///定义红黑树的结点
 typedef struct RBTree_Node
 {
     unsigned char color;
-    type key;//即节点的值，可能是数字或者字符串
+    ///定义word为单词
+    typestring *word;
+    ///在这里key定义为单词的熟悉度 0<=key<=100
+    type key;
     struct RBTree_Node *parent;
     struct RBTree_Node *left;
     struct RBTree_Node *right;
@@ -31,6 +38,9 @@ typedef struct RB_RootNode
 {
     Node *node;
 }Root;
+
+///全局根结点
+Root *root = NULL;
 
 ///定义x节点的左旋操作  其实就是每个结点的孩子，父亲绑定 左旋操作主要涉及x的右孩子（即y） x的父亲 y的左孩子 y的父亲 以及y的左孩子的父亲
 void LEFT_ROTATE(Root *root,Node *xnode)
@@ -43,14 +53,14 @@ void LEFT_ROTATE(Root *root,Node *xnode)
     xnode->right = y->left;
     ///设置y的左孩子的父亲为x，如果y的左孩子不为空
     if(y->left != NULL)
-    y->left->parent = x;
+    y->left->parent = xnode;
 
     ///设置y的父亲为x的父亲
     y->parent = xnode->parent;
 
     ///如果x结点的父亲为空，即x为根节点，则将y设为根节点
     if(xnode->parent == NULL)
-        Root->node = y;
+        root->node = y;
     ///如果x结点的父亲不为空，即x为其父亲节点的左孩子或者右孩子，就将y设为左孩子或右孩子
     else
     {
@@ -80,14 +90,14 @@ void RIGHT_ROTATE(Root *root,Node *xnode)
     xnode->left = y->right;
     ///设置y的左孩子的父亲为x，如果y的左孩子不为空
     if(y->right != NULL)
-    y->right->parent = x;
+    y->right->parent = xnode;
 
     ///设置y的父亲为x的父亲
     y->parent = xnode->parent;
 
     ///如果x结点的父亲为空，即x为根节点，则将y设为根节点
     if(xnode->parent == NULL)
-        Root->node = y;
+        root->node = y;
     ///如果x结点的父亲不为空，即x为其父亲节点的左孩子或者右孩子，就将y设为左孩子或右孩子
     else
     {
@@ -101,35 +111,102 @@ void RIGHT_ROTATE(Root *root,Node *xnode)
     xnode->parent = y;
     y->right = xnode;
 }
-///添加操作  将红黑树当做一个二叉查找树 将结点插入 并将结点着色为红色（这样不会违背红黑树的特性5 即黑高度不变）
-void RB_INSERT(Root *root,Node *z)//node为插入节点
+///添加操作  将红黑树当做一个二叉查找树 将结点插入 并将结点着色为红色（这样不会违背红黑树的特性5 即黑高度不变）fan 插入的应该是键值key
+void RB_INSERT(Root *root,type key,typestring *word)//node为插入节点
 {
-    Node *y = NULL;//把握新插入结点看做空结点
+    ///定义一个新的节点 键值为插入的key
+    Node *z = (Node*)malloc(sizeof(Node));
+    z->key = key;
+    z->word = word;
+
+
+    Node *y = NULL;//把新插入结点看做空结点
     Node *x=root->node;//把x当做根节点
 
+   // if(x == NULL)
+    //{
+    //  root->node = z;
+    //}
     ///从根节点往下找出插入节点应该插入的位置
     while(x != NULL)
     {
         y = x;
         if(z->key < x->key)
             x = x->left;
-        else
+        else if(z->key > x->key)
             x = x->right;
+
+        ///熟悉度相同时 按字母顺序插入
+        else if(z->key == x->key)
+        {
+            int i=0;
+            for(i=0;i < strlen(z->word);i++)
+            {
+                if(z->word[i] < x->word[i])
+                {
+                    x = x->left;
+                    break;
+                }
+                else if(z->word[i] > x->word[i])
+                {
+                     x = x->right;
+                     break;
+                }
+                   ///如相等 continue
+                    continue;
+
+
+
+            }
+            ///如果插入单词与当前节点单词每一位都相等 则说明该单词按字母顺序小于当前单词 插左边
+            if(i == strlen(z->word))
+                x = x->left;
+        }
     }
     z->parent = y;//这里将x赋给node的父母是否合适   不合适 x已经为NULL 故用y接受x 并将y作为node的父结点
 
     if(y == NULL)
     {
         root->node = z;
+        //z->parent = NULL;
     }
     else
     {
         if(z->key < y->key)
         y->left = z;
-        else
-        y->right = z;
+        //else
+        //y->right = z;
+       else if(z->key > y->key)
+            y->right = z;
+
+        ///熟悉度相同时 按字母顺序插入
+       else if(z->key == y->key)
+        {
+            int i=0;
+            for(i = 0;i < strlen(z->word); i++)
+            {
+                if(z->word[i] < y->word[i])
+                {
+                    y->left = z;
+                    break;
+                }
+                else if(z->word[i] > y->word[i])
+                    {
+                        y->right = z;
+                        break;
+                    }
+
+                    continue;
+            }
+            ///如果插入单词与当前节点单词每一位都相等 则说明该单词按字母顺序小于当前单词 插左边
+            if(i == strlen(z->word))
+                y->left = z;
+        }
     }
-    z->color = 0;
+
+    z->left = NULL;
+    z->right = NULL;
+    z->color = RED;//////////////////////////////
 
     RB_INSERT_FIXUP(root,z);
 }
@@ -137,11 +214,18 @@ void RB_INSERT(Root *root,Node *z)//node为插入节点
 ///插入节点后  对红黑树的调整操作 其中当前节点为刚插入节点z  当前节点肯定是红的？
 void RB_INSERT_FIXUP(Root *root,Node *z)
 {
-    Node *parent,*grandparent;//定义父结点 祖父节点
-    Node *y;
+    Node *parent = (Node*)malloc(sizeof(Node));
+    Node *grandparent;//定义父结点 祖父节点
+    Node *y = (Node*)malloc(sizeof(Node));
 
+    //if(z->parent != NULL)
+    //{parent = z->parent;
+    //if(z->parent->parent != NULL)
+    //grandparent = z->parent->parent;
+    //}
     ///父母是p[z],祖父是p[p[z]] y是z的uncle 0是红色   （！！！父结点是红色才继续进行 如果是黑色，则停止！！！）
-    while(z->parent->color == 0)
+
+        while( z ->parent != NULL && z->parent->color == RED )
     {
         ///如果z的父亲是z的祖父的左孩子
         if(z->parent == z->parent->parent->left)
@@ -150,7 +234,7 @@ void RB_INSERT_FIXUP(Root *root,Node *z)
             y = z->parent->parent->right;
 
             ///case1 z的叔叔为红色
-            if(y->color == 0)
+            if(y != NULL && y->color == 0)
             {
                 z->parent->color = 1;
                 y->color = 1;
@@ -181,7 +265,7 @@ void RB_INSERT_FIXUP(Root *root,Node *z)
 
                     ///以z的祖父为轴进行右旋
                     RIGHT_ROTATE(root,z->parent->parent);
-                    //z = z->parent->parent;
+                    //z = z->parent->parent;RBTREE_Print
                 }
             }
 
@@ -194,7 +278,7 @@ void RB_INSERT_FIXUP(Root *root,Node *z)
             y = z->parent->parent->left;
 
             ///case1 z的叔叔为红色
-            if(y->color == 0)
+            if(y != NULL && y->color == 0)
             {
                 ///调整颜色 父节点和叔叔节点都变黑 祖父节点变红
                 z->parent->color = 1;
@@ -237,10 +321,21 @@ void RB_INSERT_FIXUP(Root *root,Node *z)
         }
 
     }
+
     ///根节点设置为黑色  在while循环外边执行本句
-    root->node->color = 1;
+    root->node->color = BLACK;
 }
 
+///找出以node为根节点的子树的最小值
+Node* TreeMinimum(Node *node)
+{
+    if(node->left != NULL)
+        return TreeMinimum(node->left);
+    else
+        return node;
+}
+
+///找出结点x的后继
 Node* Tree_Successor(Node *x)
 {
     Node *y;
@@ -251,7 +346,7 @@ Node* Tree_Successor(Node *x)
         return TreeMinimum(x->right);
     }
 
-    ///如果x的右子树为空，则x的后继只能是从x网上找父母 第一个拐点的父结点 因为既然x没有右子树 则x是当前这个分支上最大的数 它的后继只能是统领这个分支的结点
+    ///如果x的右子树为空，则x的后继只能是从往上找父母 第一个拐点的父结点 因为既然x没有右子树 则x是当前这个分支上最大的数 它的后继只能是统领这个分支的结点
     y = x->parent;
 
     ///当x不是y的右孩子时结束循环  如果在y==null时结束循环 则说明分支不存在拐点 即不存在后继
@@ -265,12 +360,52 @@ Node* Tree_Successor(Node *x)
 
 }
 
-///z为插入节点 也是当前节点
-Node* RB_DELETE(Root *root,Node *z)
+Node* RB_SEARCH(Node *node,type key,typestring *word)
 {
+
+    if(node == NULL || node->key == key)
+        return node;
+
+    if(node != NULL)
+    {
+        if( key < node->key )
+       {
+         return RB_SEARCH(node->left,key,word);
+       }
+       if( key > node->key )
+         return RB_SEARCH(node->right,key,word);
+       if(key == node->key)
+       {
+           int i=0;
+            for(i = 0;i < strlen(node->word); i++)
+            {
+                if(word < node->word[i])
+                {
+                    return RB_SEARCH(node->left,key,word);
+                    break;
+                }
+                else
+                    {
+                        return RB_SEARCH(node->right,key,word);
+                        break;
+                    }
+            }
+       }
+    }
+
+
+}
+
+///红黑树删除结点
+///z为插入节点 也是当前节点
+void RB_DELETE(Root *root,type key,typestring *word)
+{
+    Node *z;
     Node *y;///用于接受 待删除节点
     Node *x;///用于接受 待删除节点的儿子
 
+    ///要删除的结点
+    z = RB_SEARCH(root->node,key,word);
     ///如果待删除结点只有一个儿子或者没有儿子
     if(z->left == NULL || z->right == NULL)
     {
@@ -322,7 +457,7 @@ Node* RB_DELETE(Root *root,Node *z)
         }
         else
             y->parent->right = x;///case3:后继y的父结点的右儿子用y的左儿子替换  即用后继y的儿子替换掉y
-
+    }
     ///用于z有两个儿子的情况  z的后继与z肯定不相同  此时将z的值用后继的值覆盖掉 同时删除z的后继
     if(y != z)
     {
@@ -331,19 +466,21 @@ Node* RB_DELETE(Root *root,Node *z)
 
     ///case1、case2:y是待删除结点 待删除结点为红色 则不用调整；若待删除结点为黑色 则需要调整
     ///case3:y是待删除结点的后继 等于说删掉了后继 （替换y后 需要调整）
-    if(y->color = 1)
+    if(y->color == 1)
         RB_DELETE_FIXUP(root,x);
     ///这里为什么return y？？？
-    return y;
+   // return y;
 }
 
+
+///红黑树删除结点调整函数
 void RB_DELETE_FIXUP(Root *root,Node *x)
 {
 
     Node *w;
 
     ///替换后的结点x为黑色 并且x不是root结点 循环进行
-    while(x != root->node && x->color == 1)
+    while(x != NULL && x != root->node && x->color == 1)
     {
         ///x为左儿子
         if(x == x->parent->left)
@@ -394,7 +531,7 @@ void RB_DELETE_FIXUP(Root *root,Node *x)
         else
         {
             w = x->parent->left;
-            if(w->color == 0)
+            if(w != NULL && w->color == 0)
             {
                 ///case1
                 w->color = 1;
@@ -402,7 +539,7 @@ void RB_DELETE_FIXUP(Root *root,Node *x)
                 RIGHT_ROTATE(root,x->parent);
                 w = x->parent->left;
             }
-            if(w->left->color == 1 && w->right->color == 1)
+            if(w != NULL && w->left->color == 1 && w->right->color == 1)
             {
                 ///case2
                 w->color = 0;
@@ -428,10 +565,172 @@ void RB_DELETE_FIXUP(Root *root,Node *x)
     }
 
     ///?????
+    if(x != NULL)
     x->color = 1;
+}
+
+///中序遍历
+typestring* inorder_tree(Node *node,int k)
+{
+    static int kth = 0;
+   /*中序遍历
+   if(node != NULL)
+    {
+        inorder_tree(node->right,k);
+        printf("%s ",node->word);
+        inorder_tree(node->left,k);
+    }
+    */
+
+    ///找出第k个最大值
+    while(node != NULL)
+    {
+        if(node->right != NULL)
+            node = node->right;
+        else
+        {
+
+            if(node->left != NULL)
+                node = node->left;
+            if(kth++ == k)
+            return node->word;
+        }
+    }
+}
+
+///红黑树根据熟悉度也就是key 排序(其实就是中序遍历
+typestring* RB_QUERY(Root *root,int k)
+{
+    if(root)
+    {
+        return inorder_tree(root->node,k);
+    }
+
+}
+/*
+* 打印"红黑树"
+*
+* tree       -- 红黑树的节点
+* key        -- 节点的键值
+* direction  --  0，表示该节点是根节点;
+*               -1，表示该节点是它的父结点的左孩子;
+*                1，表示该节点是它的父结点的右孩子。
+*/
+void RBTREE_Print(RBTree tree,typestring* word,type key,int direction)
+{
+    if(tree != NULL)
+    {
+        if(direction == 0)
+        {
+            printf("%10s(%4d(BLACK)) is root\n",tree->word,tree->key);
+        }
+        else
+        {
+           // printf("%4d ",tree->key);
+            //printf("%6s ",tree->color);
+           // printf("%4d ",tree->key);
+            printf("%10s(%4d(%6s)) is  %10s(%4d)'s %7s child\n",tree->word,tree->key,tree->color == 1 ? "BLACK" : "RED",word,key,direction == 1?"right" : "left");
+        }
+
+            RBTREE_Print(tree->left,tree->word,tree->key,-1);
+            RBTREE_Print(tree->right,tree->word,tree->key,1);
+    }
+}
+
+///打印红黑树起点 调用RBTREE_Print函数
+void Print_RBTREE(Root *root)
+{
+    if(root != NULL && root->node != NULL)
+    {
+        RBTREE_Print(root->node,root->node->word,root->node->key,0);
+    }
+}
+
+///创建红黑树
+Root* create_RBTree()
+{
+    ///动态分配内存
+    Root *root = (Root*)malloc(sizeof(Root));
+    root->node = NULL;
+
+    return root;
+}
+void Init_RBTree(Node *node)
+{
+	node = (Node*)malloc(sizeof(Node));
+	node->left = (Node*)malloc(sizeof(Node));
+	node->parent = (Node*)malloc(sizeof(Node));
+	node->right = (Node*)malloc(sizeof(Node));
 }
 int main()
 {
-    printf("Hello world!\n");
+    int a[] = {10, 10, 10, 10, 10, 10, 20, 50, 80};
+    char b[9][9] = {"a","abandon","avoid","amuse","bind","bike","beyond","clone","click"};
+    ///strlen()是求字符串长度的 用下边函数得出数组长度
+    int i, ilen=sizeof(a)/sizeof(a[0]);
+
+
+    root = create_RBTree();
+    Init_RBTree(root->node);
+
+    printf("== 原始数据: ");
+    for(i=0; i<ilen; i++)
+      printf("%d ", a[i]);
+    printf("\n");
+
+    for(i=0; i<ilen; i++)
+     {
+         RB_INSERT(root, a[i],b[i]);
+//#if CHECK_INSERT
+         printf("== 添加节点: %d\n", a[i]);
+         printf("== 树的详细信息: \n");
+         Print_RBTREE(root);
+         printf("\n");
+//#endif
+     }
+/*
+for(i=0; i<ilen; i++)
+     {
+         RB_DELETE(root, a[i],b[i]);
+
+         printf("== 删除节点: %d\n", a[i]);
+        if (root)
+         {
+             printf("== 树的详细信息: \n");
+             Print_RBTREE(root);
+            printf("\n");
+         }
+    }
+*/
+   int op;
+   int k;
+   printf("请输入操作类型和第几个数: \n");
+   scanf("%d %d",&op,&k);
+   switch(op){
+    ///Find
+    case 1:
+
+
+        printf("== 熟悉度为第%d大的单词为%s\n",k,RB_QUERY(root,k));
+        break;
+    ///Insert
+    case 2:
+        RB_INSERT(root,10,"amazing");
+        break;
+    ///Modify
+    case 3:
+        break;
+    ///Delete
+    case 4:
+        break;
+    ///Aggregate
+    case 5:
+        break;
+
+    default:
+        break;
+   }
+
+   system("pause");
     return 0;
 }

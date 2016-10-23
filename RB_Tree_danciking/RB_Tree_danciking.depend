@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1477210758 source:c:\github\da_pj1\rb_tree_danciking\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
