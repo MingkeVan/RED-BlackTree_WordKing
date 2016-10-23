@@ -585,13 +585,25 @@ typestring* inorder_tree(Node *node,int k)
     ///找出第k个最大值
     while(node != NULL)
     {
+
         if(node->right != NULL)
             node = node->right;
         else
         {
+            kth ++;
+
 
             if(node->left != NULL)
+              {
+
                 node = node->left;
+
+              }
+              else
+                {
+
+                    node = node->parent;
+                }
             if(kth++ == k)
             return node->word;
         }
