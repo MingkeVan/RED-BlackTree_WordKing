@@ -17,6 +17,7 @@
 
 
 
+
 typedef int type;
 typedef char typestring;
 ///红黑树的定义:包含父结点，左孩子，右孩子 以及当前节点的颜色和值（key）
@@ -32,6 +33,13 @@ typedef struct RBTree_Node
     struct RBTree_Node *left;
     struct RBTree_Node *right;
 }Node,*RBTree;//Node是struct RBTree_Node的别名 但是因为*parent *left *right都是在结构体里边 所以不能用别名定义
+
+static Node *kthnode;
+static Node *deleteNode;
+static Node *ArrNode[];
+static int sum;
+///用于标记标记遍历所取到的值的序号 从1开始
+static int m = 1;
 
 ///定义红黑树的根
 typedef struct RB_RootNode
@@ -360,10 +368,11 @@ Node* Tree_Successor(Node *x)
 
 }
 
+///根据单词和熟悉度来查找
 Node* RB_SEARCH(Node *node,type key,typestring *word)
 {
 
-    if(node == NULL || node->key == key)
+    if(node == NULL || ((node->key == key)&&(node->word == word)))
         return node;
 
     if(node != NULL)
@@ -379,22 +388,26 @@ Node* RB_SEARCH(Node *node,type key,typestring *word)
            int i=0;
             for(i = 0;i < strlen(node->word); i++)
             {
-                if(word < node->word[i])
+                if(word[i] < node->word[i])
                 {
                     return RB_SEARCH(node->left,key,word);
                     break;
                 }
-                else
+                else if(word[i] > node->word[i])
                     {
                         return RB_SEARCH(node->right,key,word);
                         break;
                     }
+                if(i == strlen(node->word)-1)
+                    {
+                        return node;
+                    }
+                    continue;
             }
        }
     }
-
-
 }
+
 
 ///红黑树删除结点
 ///z为插入节点 也是当前节点
@@ -569,19 +582,57 @@ void RB_DELETE_FIXUP(Root *root,Node *x)
     x->color = 1;
 }
 
-///中序遍历
-typestring* inorder_tree(Node *node,int k)
+
+///中序遍历 用来根据要被删除的单词找到相应的结点
+Node* inorder_DeleteNode(Node *node,typestring* deleteword)
 {
-    static int kth = 0;
-   /*中序遍历
+
+    //static char *a[10];
+   int i;
+   //中序遍历
+   if(deleteNode != NULL)
+   {
+       return;
+   }
+   if(node != NULL)
+    {
+        inorder_DeleteNode(node->right,deleteword);
+        //a[m] = node->word;
+        for(i = 0;i < strlen(deleteword);i++)
+        {
+            if(node->word[i] != deleteword[i])
+                break;
+            //printf("%s ",a[i]);
+            if(i == strlen(deleteword)-1)
+            {
+                deleteNode = node;
+                break;
+            }
+        }
+        inorder_DeleteNode(node->left,deleteword);
+    }
+}
+///中序遍历 用来找到按熟悉度排kth的单词
+void inorder_tree(Node *node,int k)
+{
+    //static int m = 1;
+    static char *a[10];
+
+   //中序遍历
    if(node != NULL)
     {
         inorder_tree(node->right,k);
-        printf("%s ",node->word);
+        a[m] = node->word;
+        if(m == k)
+        {
+            //printf("%s ",a[i]);
+            kthnode = node;
+        }
+        m++;
         inorder_tree(node->left,k);
     }
-    */
 
+/*
     ///找出第k个最大值
     while(node != NULL)
     {
@@ -601,17 +652,48 @@ typestring* inorder_tree(Node *node,int k)
               }
               else
                 {
+                    kth ++;
 
-                    node = node->parent;
                 }
-            if(kth++ == k)
+            if(kth == k)
             return node->word;
         }
+    }*/
+}
+
+///中序遍历 用来找到按熟悉度排lth到kth的单词
+void inorder_Aggregate(Node *node,int l,int r)
+{
+    ///用于标记标记遍历所取到的值的序号
+    //static int m = 1;
+   // static char *a[10];
+
+    if(m >= r+1)
+    {
+
+        return;
     }
+   //中序遍历
+   if(node != NULL)
+    {
+        inorder_Aggregate(node->right,l,r);
+        //a[m] = node->word;
+        if(l <= m && m<= r)
+        {
+            //printf("%s ",a[i]);
+            //kthnode = node;
+            sum += node->key;
+
+        }
+        m++;
+        inorder_Aggregate(node->left,l,r);
+    }
+
+
 }
 
 ///红黑树根据熟悉度也就是key 排序(其实就是中序遍历
-typestring* RB_QUERY(Root *root,int k)
+void RB_QUERY(Root *root,int k)
 {
     if(root)
     {
@@ -673,6 +755,7 @@ void Init_RBTree(Node *node)
 	node->left = (Node*)malloc(sizeof(Node));
 	node->parent = (Node*)malloc(sizeof(Node));
 	node->right = (Node*)malloc(sizeof(Node));
+	node->word = (typestring *)malloc(40 * sizeof(typestring));
 }
 int main()
 {
@@ -712,35 +795,65 @@ for(i=0; i<ilen; i++)
              Print_RBTREE(root);
             printf("\n");
          }
-    }
-*/
+    }*/
+
    int op;
+   int N;
+   int j = 0;
    int k;
-   printf("请输入操作类型和第几个数: \n");
-   scanf("%d %d",&op,&k);
-   switch(op){
+   int l,r;
+   printf("请输入操作次数: \n");
+   scanf("%d",&N);
+
+   while(j++ < N)
+   {
+    ///执行操作前先初始化数据
+    ///sum:case5中的熟悉度综合
+    ///m:从大到小遍历红黑树时的序号
+    sum = 0;
+    m = 1;
+    printf("请输入操作类型和第几个数: \n");
+    scanf("%d %d",&op,&k);
+    //scanf("%d %d %d",&op,&l,&r);
+    switch(op){
     ///Find
     case 1:
 
-
-        printf("== 熟悉度为第%d大的单词为%s\n",k,RB_QUERY(root,k));
+        RB_QUERY(root,k);
+        printf("== 熟悉度为第%d大的单词为%s\n",k,kthnode->word);
         break;
     ///Insert
     case 2:
         RB_INSERT(root,10,"amazing");
+        printf("== 添加结点 树的详细信息: \n");
+        Print_RBTREE(root);
         break;
     ///Modify
     case 3:
+        inorder_DeleteNode(root->node,"click");
+        RB_DELETE(root,deleteNode->key,deleteNode->word);
+        RB_INSERT(root,10,"click");
+        printf("== 修改树的详细信息: \n");
+        Print_RBTREE(root);
         break;
     ///Delete
     case 4:
+        inorder_DeleteNode(root->node,"amuse");
+        RB_DELETE(root,deleteNode->key,deleteNode->word);
+        printf("== 删除树的详细信息: \n");
+        Print_RBTREE(root);
         break;
     ///Aggregate
     case 5:
+        m = 1;
+        inorder_Aggregate(root->node,l,r);
+        printf("== 从第%dth到第%dth的熟悉度总和为%d: \n",l,r,sum);
         break;
 
     default:
         break;
+   }
+
    }
 
    system("pause");
