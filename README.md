@@ -1,2 +1,2 @@
 # RED-BlackTree_WordKing
-create a app which can be used to memorize word. This app is besed on RBTree.
+create a app which can be used to memorize word. This app is besed on RBTree and B-Tree.
