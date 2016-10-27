@@ -36,7 +36,7 @@ typedef struct B_Tree
 
 
 
-///创建m阶b树 关键字的个数 最多为m-1 最少为ceil（m/2） （即取m/2的上限）  且不能少于两对
+///创建m阶b树 关键字的个数 最多为m-1 最少为ceil（m/2）-1 （即取m/2的上限）  且不能少于两对
 int create_BTree(Tree **btree,int m)
 {
     Tree *bt = NULL;
@@ -62,7 +62,7 @@ int create_BTree(Tree **btree,int m)
     {
         bt->min ++;
     }
-    ///结点中关键字的个数min >= （(m/2)的上限-1）  比如 m=3 则关键字最少为1 最多为2  m=4 则关键字最少为2 最多为3
+    ///结点中关键字的个数min >= （(m/2)的上限-1）  比如 m=3 则关键字最少为1 最多为2  m=4 则关键字最少为1 最多为3
     bt->min --;
 
     ///标记分割点
@@ -258,6 +258,260 @@ Node* btree_insert(Tree *btree,Node* node,int key,char* word)
             return btree->root;
         }
 }
+
+Node* btree_max(Node* node)
+{
+    Node* newNode = NULL;
+    newNode = node;
+    if(newNode->child[0] == NULL)
+    {
+        return newNode;
+    }
+    else
+    {
+        newNode = btree_max(node->child[node->keyNum]);
+    }
+    return newNode;
+}
+
+Node* btree_min(Node* node)
+{
+    Node* newNode = NULL;
+    newNode = node;
+    if(newNode->child[0] == NULL)
+    {
+        return newNode;
+    }
+    else
+    {
+        newNode = btree_min(node->child[0]);
+    }
+    return newNode;
+}
+
+    //remove
+    // 对 tree 中的节点 node 进行合并孩子节点处理.
+	// 注意：孩子节点的 keynum 必须均已达到下限，即均等于 BTree_D - 1
+    // 将 tree 中索引为 index 的 key 下移至左孩子结点中，
+	// 将 node 中索引为 index + 1 的孩子节点合并到索引为 index 的孩子节点中，右孩子合并到左孩子结点中。
+	// 并调相关的 key 和指针。
+	void BTree_merge_child(Tree* btree, Node* node,Node* parent, int key)
+	{
+	    int i;
+	    ///当前节点是根结点 不必合并
+	    if(parent == NULL)
+        {
+            if(node->keyNum == 0)
+            {
+                if(node->child[0] != NULL)
+                 {
+                    btree->root = node->child[0];
+                    node->child[0]->parent = NULL;
+                 }
+
+                else
+                {
+                 btree->root = NULL;
+                }
+                free(node);
+            }
+        }
+
+        for(i = 0;i <= parent->keyNum;i++)
+        {
+            if(node == parent->child[i])
+            {
+                break;
+            }
+        }
+        ///待删除key在最后一个孩子结点上
+        if(i == parent->keyNum)
+        {
+            int m = parent->child[i-1]->keyNum;
+            ///如果兄弟不够借 合并
+            if(m <= btree->min)
+            {
+            parent->child[i-1]->key[m] = parent->key[i-1];
+            for(i = 1;i<node->keyNum;i++)
+            parent->child[i-1]->key[m + i] = node->key[i];
+
+            parent->key[i-1] = NULL;
+            parent->word[i-1] = NULL;
+            parent->child[i] = NULL;
+            free(node);
+            }
+            else
+            {///如果兄弟够借 那就借一个 进行局部右旋
+                node->key[node->keyNum] = parent->key[parent->keyNum - 1];
+                node->keyNum ++;
+                parent->key[parent->keyNum - 1] = parent->child[i - 1]->key[m-1];
+                parent->child[i - 1]->key[m-1] = NULL;
+                parent->child[i - 1]->keyNum --;
+                ///转向case1 删除
+                btree_delete(btree,node,key);
+            }
+        }
+        else///如果在中间的孩子结点上
+        {
+            if()
+        }
+	}
+
+	///删除主要分两种情况 一种是要删除key不在当前节点 一种是要删除key在当前结点
+
+	void btree_delete(Tree *btree,Node* node,int key)
+	{
+	    int i = 0;
+	    int temp;
+
+	    while(i < node->keyNum)
+        {
+            if(key <= node->key[i])
+            {
+             break;
+            }
+            i++;
+        }
+
+
+
+	/*======================含有key的当前结点时的情况====================
+	2. node:
+	3. index of Key:            i-1  i  i+1
+	4.                         +---+---+---+---+
+	5.                           *  key   *
+	6.                     +---+---+---+---+---+
+	7.                            /     \
+	8. index of Child:           i      i+1
+	9.                          /         \
+	10.                     +---+---+      +---+---+
+	11.                       *   *           *   *
+	12.                 +---+---+---+  +---+---+---+
+	13.                     leftChild     rightChild
+	14. ============================================================*/
+         ///在该层 且 可以找到该值
+         if(i < node->keyNum && key == node->key[i])
+         {
+             /// case1:如果是叶子结点 直接删除
+             if(node->child[0] == NULL)
+             {
+
+                     for(j = i;j < node->keyNum - 1;j++)
+                     {
+                         node->key[j]=node->key[j+1];
+                     }
+                 node->key[node->keyNum - 1] = 0;
+                 node->keyNum --;
+
+                 if(node->keyNum < btree->min)
+                 {
+                     BTree_merge_child(btree,node,node->parent);
+                 }
+                // for(j = )
+             }
+             else
+             {
+                 /*删除的值在当前节点 就找其前驱或后继（必是叶节点） 调换后删除叶节点
+	              * 当前于该位置的关键字的左子结点关键字个数大于等于T时，
+	              * 寻找该位置的关键的前驱（左子结点的最大关键字）
+	              */
+                 if(node->child[i]->keyNum >= btree->min)
+                 {
+                     Node* newNode;
+                     newNode = btree_max(node->child[i]);
+                     temp = node->key[i];
+                     node->key[i] = newNode->key[newNode->keyNum - 1];
+                     newNode->key[newNode->keyNum - 1] = temp;
+                 }
+                 else if(node->child[i+1]->keyNum >= btree->min)
+                 {
+                     Node* newNode;
+                     newNode = btree_min(node->child[i+1]);
+                     temp = node->key[i];
+                     node->key[i] = newNode->key[0];
+                     newNode->key[0] = temp;
+                     ///交换完  找到相应的i 执行删除操作
+                     i++;
+                 }
+                 ///两个儿子都很穷 只能合体了
+                 else
+                 {
+                     i = BTree_merge_child(node,i);
+                 }
+                 ///交换完  找到相应的i 执行删除操作 递归调用 一层一层往下
+                 btree_delete(btree,node->child[i],key);
+             }
+         }
+         ///当前节点找不到key 但在下一层可以找到key 即要删除的值不在当前结点
+         else
+         {
+             if(node->child[0] == NULL)
+             {
+                 printf("***不存在要删除的值\n");
+             }
+             else
+             {
+                 ///如果要删除的值在当前结点的孩子分支上 执行递归删除
+                 if(node->child[i]->keyNum >= btree->min)
+                    btree_delete(btree,node->child[i],key);
+                ///如果这个孩子分支太穷 那就要看他的兄弟 兄弟可以借就借
+                 else if(i>0 && node->child[i-1]->keyNum >btree->min)
+                 {
+                     ///进行局部右旋 左兄弟富裕
+                     for(j = node->child[i]->keyNum - 1;j>=0;j--)
+                     node->child[i]->key[j+1] = node->child[i]->key[j];
+
+                     node->child[i]->key[0] = node->key[i];
+                     node->key[i] = node->child[i-1]->key[node->child[i-1]->keyNum - 1];
+
+                     if(node->child[i]->child[0] != NULL)
+                     {
+                         for(j = node->child[i]->keyNum;j>=0;j--)
+                          node->child[i]->child[j+1] = node->child[i]->child[j];
+
+                          node->child[i]->child[0] = node->child[i-1]->child[node->child[i-1]->keyNum];
+                     }
+
+                     node->child[i]->keyNum ++;
+                     node->child[i-1]->keyNum --;
+                 }
+                 else if(i>0 && node->child[i+1]->keyNum >btree->min)
+                 {
+                     ///进行局部左旋 右兄弟富裕
+                     node->child[i]->key[node->child[i]->keyNum] = node->key[i];
+                     node->key[i] = node->child[i+1]->key[0];
+
+                     for(j = 0;j<node->child[i+1]->keyNum - 1;j++)
+                     node->child[i+1]->key[j] = node->child[i+1]->key[j+1];
+
+                     node->child[i+1]->key[node->child[i+1]->keyNum - 1] = NULL;
+
+
+                     if(node->child[i]->child[0] != NULL)
+                     {
+                         node->child[i]->child[node->child[i]->keyNum +1] = node->child[i-1]->child[0];
+
+                         for(j = 0;j<node->child[i+1]->keyNum;j++)
+                          node->child[i+1]->child[j] = node->child[i+1]->child[j+1];
+                     }
+
+                     node->child[i]->keyNum ++;
+                     node->child[i+1]->keyNum --;
+                 }
+                 else
+                    i = BTree_merge_child(btree,node,i);
+
+                 ///需要合并三个结点 才能执行删除
+                 btree_delete(btree,node->child[i],key);
+             }
+         }
+
+
+
+	}
+
+
+
 /*
 int B_TREE_INSERT(Tree *btree,int k,char* word)
 {
@@ -379,15 +633,7 @@ void BTREE_Print(Node *node,int layer,int max,int ith)
     else
         printf("==树为空\n");
 }
-/*
-///打印红黑树起点 调用RBTREE_Print函数
-void Print_BTREE(Tree *btree)
-{
-    if(btree != NULL && btree->root != NULL)
-    {
-        BTREE_Print(btree->root,1,btree->max);
-    }
-}*/
+
 
 int main()
 {
