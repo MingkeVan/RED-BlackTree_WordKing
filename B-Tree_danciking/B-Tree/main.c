@@ -35,6 +35,7 @@ typedef struct B_Tree
 }Tree;
 
 
+
 ///创建m阶b树 关键字的个数 最多为m-1 最少为ceil（m/2） （即取m/2的上限）  且不能少于两对
 int create_BTree(Tree **btree,int m)
 {
@@ -75,19 +76,22 @@ int create_BTree(Tree **btree,int m)
 ///创建结点
 Node* create_node(Tree *btree)
 {
+    int i;
     Node *node = NULL;
     node = (Node*)malloc(sizeof(Node));
 
     if(node == NULL)
     {
         return NULL;
-    }
+    } //tempNode->child = node->child + (btree->index);
 
     ///初始化用来标记当前node中关键字个数的keyNum 待理解
     node->keyNum = 0;
     ///calloc函数通常用来为数组申请内存空间 这里key是数组
     node->key = (int*)calloc(btree->max + 1,sizeof(int));
-    node->word = (char*)calloc(btree->max + 1,sizeof(char));
+    node->word = (char**)calloc(btree->max + 1,sizeof(char));
+    for(i = 0;i < btree->max + 1;i++)
+    node->word[i] = (char*)calloc(1,sizeof(char));
 
     if(node->word == NULL || node->key == NULL)
     {
@@ -101,6 +105,7 @@ Node* create_node(Tree *btree)
     if(node->child == NULL)
     {
         free(node->key);
+        free(node->word);
         free(node);
         node == NULL;
         return NULL;
@@ -109,125 +114,157 @@ Node* create_node(Tree *btree)
     return node;
 
 }
-/*
-  1) 结点node以sidx关键字为分割点，索引(0 ~ sidx-1)关键字继续留在结点node中，索引(sidx+1 ~ num-1)关键字放入新结点node2中
-  2) 而索引sidx关键字则插入node->parent中，再将新结点node2作为父结点新插入关键字的右孩子结点
-  3) 判断插入node的sidx关键字后，node->parent的关键字个数num是否超过max，如果超过，则以parent为操作对象进行1)的处理；否则，处理结束
-*/
-/*int _btree_insert(B_Tree *btree,Node *node,int i,int k,char* word)
+
+///结点分裂处理 由node分裂出tempnode  pos是插入位置
+void B_TREE_SPLIT(Tree *btree,Node* parentNode,Node* node,int pos)
 {
-    ///经过预分裂 可以进行插入了
-    int i = 0;
-
-    for(int i=node->keyNum; i > 0 ; i--)
-    {
-        if(k < node->key[i-1])
-        {
-            ///关键字会变多
-            node->key[i] = node->key[i-1];
-            continue;
-        }
-            break;
-    }
-    node->key[i-1] = k;
-    node->keyNum++;
-    return 0;
-}*/
-
-///结点分裂处理
-Node* B_TREE_SPLIT(Tree *btree,Node* node)
-{
-    ///用于接受分裂后产生的父结点
-    Node* parentNode = NULL;
-    ///用于接受分裂后的结点
-    Node* tempNode = NULL;
-
-    while(node->keyNum >= btree->max)
-    {
+    Node* tempNode;
+    int i;
+    ///为新分裂出的结点申请内存
+    tempNode = create_node(btree);
         ///对分裂结点的一系列赋值
-        tempNode->key = node->key + (btree->index);
-        tempNode->child = node->child + (btree->index);
+        for (i = 0; i<btree->index - 1; i++)
+			{
+			    tempNode->key[i] = node->key[i + btree->index];
+			    tempNode->word[i] = node->word[i + btree->index];
+			}
+        //tempNode->key = node->key + (btree->index);
         tempNode->keyNum = btree->max - (btree->index);
-        tempNode->parent = node->parent;
+        ///如果当前结点不是叶结点 复制孩子指针
+        if(node->child[0] != NULL)
+            //tempNode->child = node->child + (btree->index);
+           {
+             for (i = 0; i<btree->index; i++)
+			tempNode->child[i] = node->child[i + btree->index];
+           }
+        node->keyNum = btree->index - 1;
 
-        ///将顶上来的结点插入原父结点
-        parentNode = node->parent;
-        ///若原父结点为空 即当前节点为根结点
-        if(parentNode == NULL)
-        {
-            parentNode == create_node(btree);
-            if(parentNode == NULL)
+        //将中间数作为索引插入到双亲节点中
+        //插入点后面的关键字和指针都往后移动一个位置
+         for(i=parentNode->keyNum; i > pos ; i--)
             {
-                return -1;
-            }
-            ///根节点有两个儿子 一个关键字
-            parentNode->child[0] = node;
-            parentNode->key[0] = node->key[btree->index - 1];
-            parentNode->keyNum = 1;
-            parentNode->child[0] = tempNode;
-
-            ///将分裂的两个节点的父结点设为根节点
-            node->parent = parentNode;
-            tempNode->parent = parentNode;
-        }
-        else
-        {
-            ///插入非空父结点 从右往左进行比较 好像比较慢？？？
-            int i;
-            for(i=parentNode->keyNum; i > 0 ; i++)
-            {
-                if(node->key[btree->index - 1] < parentNode->key[i-1])
-                {
                     ///关键字和孩子都会变多
                     parentNode->key[i] = parentNode->key[i-1];
+                    parentNode->word[i] = parentNode->word[i-1];
                     parentNode->child[i+1] = parentNode->child[i];
-                    continue;
-                }
-                break;
+
             }
             ///此时将顶上去的key和指向child的指针插入
-            parentNode->key[i-1] = node->key[btree->index - 1];
-            parentNode->child[i] = tempNode;
+            parentNode->key[pos] = node->key[btree->index - 1];
+            parentNode->word[pos] = node->word[btree->index - 1];
+            parentNode->child[pos+1] = tempNode;
             tempNode->parent = parentNode;
             parentNode->keyNum ++;
-        }
 
-        ///对原有结点的儿子和关键字进行部分清空
-        node->keyNum = btree->index;
-        int i;
+            ///对原有结点的儿子和关键字进行部分清空
+       // node->keyNum = btree->index - 1;
+
         for(i = btree->index - 1 ;i< btree->max ; i++)
         {
             ///应该赋值多少？？？
             node->key[i] = NULL;
+            node->word[i] = NULL;
         }
         for(i = btree->index ;i< btree->max + 1 ; i++)
         {
             ///应该赋值多少？？？
             node->child[i] = NULL;
         }
-    }
-    ///最后还需要改变原结点的孩子的父亲结点 因为原来他们是一个父结点 现在分开
 
-   /*for(int i = 0 ;i< btree->index ; i++)
-    {
-        if(node->child[i] != NULL)
-        node->child[i]->parent = node;
-    }*/
-    int i;
-   for(i = 0 ;i < tempNode->keyNum ; i++)
-    {
-        if(tempNode->child[i] != NULL)
-        tempNode->child[i]->parent = tempNode;
-    }
-    ///到此分裂结束 不用再向上找 看父结点是否为满  返回当前分裂生成的父结点
-    return parentNode;
+        for(i = 0 ;i < tempNode->keyNum ; i++)
+        {
+           if(tempNode->child[i] != NULL)
+              tempNode->child[i]->parent = tempNode;
+        }
+        for(i = btree->index - 1 ;i< btree->max ; i++)
+        {
+            ///应该赋值多少？？？
+            node->key[i] = NULL;
+            node->word[i] = NULL;
+        }
 }
 
+void btree_InsertNoneFull(Tree *btree,Node *node,int key,char *word)
+{
+    int i;
+    Node* child;
+
+    i = node->keyNum;
+
+    ///如果是叶结点 直接插入
+    if(node->child[0] == NULL)
+    {
+        for(i=node->keyNum; i > 0 ; i--)
+      {
+        if(key < node->key[i-1])
+        {
+            ///关键字会变多
+            node->key[i] = node->key[i-1];
+            node->word[i] = node->word[i-1];
+            continue;
+        }
+            break;
+      }
+      ///此处i是多少 需调整
+      node->key[i] = key;
+      node->word[i] = word;
+      node->keyNum++;
+    }
+    else{
+            ///找出应该插入的孩子节点
+         for(i=node->keyNum; i > 0 ; i--)
+      {
+        if(key < node->key[i-1])
+        {
+            continue;
+        }
+            break;
+      }
+      child = node->child[i];
+    if(child->keyNum == btree->max)
+    {
+        B_TREE_SPLIT(btree,node,child,i);
+
+        ///若 key比兴顶上来的值大 则 接下来应该切向右孩子 即i++
+        if(key > node->key[i])
+            i++;
+    }
+    ///将结点切向孩子节点
+    child = node->child[i];
+    btree_InsertNoneFull(btree,child,key,word);
+    }
+}
+
+Node* btree_insert(Tree *btree,Node* node,int key,char* word)
+{
+    Node* newNode;
+    /* 检查是否根节点已满，如果已满，分裂并生成新的根节点 */
+    if(node->keyNum == btree->max)
+        {
+            ///这里对不对？？？？进行预分裂 newnode即分裂后产生的父结点 此处为新的根节点
+            newNode =create_node(btree);
+            newNode->keyNum = 0;
+            newNode->child[0] = node;
+            B_TREE_SPLIT(btree,newNode,node,0);
+
+            btree_InsertNoneFull(btree,newNode,key,word);
+            return newNode;
+            //node = btree->root;
+            //continue;
+        }
+        else///未满
+        {
+            btree_InsertNoneFull(btree,node,key,word);
+            return btree->root;
+        }
+}
+/*
 int B_TREE_INSERT(Tree *btree,int k,char* word)
 {
     int i = 0;
     Node* node = btree->root;
-    Node* tempNode = create_node(btree);
+    Node* newnode = NULL;
+    //Node* tempNode = create_node(btree);
     ///构建第一个node
     if(node == NULL)
     {
@@ -240,6 +277,7 @@ int B_TREE_INSERT(Tree *btree,int k,char* word)
         node->keyNum = 1;
         node->key[0] = k;
         node->word[0] = word;
+        node->parent = NULL;
 
         ///把创建的第一个结点重新赋给根结点
         btree->root = node;
@@ -250,14 +288,19 @@ int B_TREE_INSERT(Tree *btree,int k,char* word)
     while(node != NULL)
     {
 
-        if(node->keyNum == btree->max)
+        if(btree->root->keyNum == btree->max)
         {
             ///这里对不对？？？？进行预分裂
-            node = B_TREE_SPLIT(btree,node);
-            break;
+            newnode =create_node(btree);
+            newnode->keyNum = 0;
+            newnode->child[0] = node;
+            B_TREE_SPLIT(btree,node,newnode);
+
+            //node = btree->root;
+            //continue;
         }
 
-            for(i = 0;i < node->keyNum;i--)
+             for(i = 0;i < node->keyNum;i++)
             {
                if(k == node->key && word == node->word)
                {
@@ -273,7 +316,7 @@ int B_TREE_INSERT(Tree *btree,int k,char* word)
         ///如果上边都不执行的话 i此时为node->keyNum
         if(node->child[i] != NULL)
         {
-            node == node->child[i];
+            node = node->child[i];
         }
         ///只有叶结点的孩子结点为NULL
         else
@@ -287,15 +330,20 @@ int B_TREE_INSERT(Tree *btree,int k,char* word)
         {
             ///关键字会变多
             node->key[i] = node->key[i-1];
+            node->word[i] = node->word[i-1];
             continue;
         }
             break;
     }
-    node->key[i-1] = k;
+    ///应该是对key[i]赋值
+    node->key[i] = k;
+    node->word[i] = word;
     node->keyNum++;
+    ///重新赋值？？？？？
+   // btree->root = node;
     return 0;
 }
-
+*/
 
 
 /*
@@ -307,49 +355,64 @@ int B_TREE_INSERT(Tree *btree,int k,char* word)
 *               -1，表示该节点是它的父结点的左孩子;
 *                1，表示该节点是它的父结点的右孩子。
 */
-/*void BTREE_Print(Tree *tree,char* word,int key,int direction)
+void BTREE_Print(Node *node,int layer,int max,int ith)
 {
-    if(tree != NULL)
+    int i;
+    if(node != NULL)
     {
-        if(direction == 0)
-        {
-            printf("%10s(%4d(BLACK)) is root\n",tree->word,tree->key);
-        }
-        else
-        {
-           // printf("%4d ",tree->key);
-            //printf("%6s ",tree->color);
-           // printf("%4d ",tree->key);
-            printf("%10s(%4d(%6s)) is  %10s(%4d)'s %7s child\n",tree->word,tree->key,tree->color == 1 ? "BLACK" : "RED",word,key,direction == 1?"right" : "left");
-        }
+        printf("===第%d层====第%d个结点:",layer,ith);
 
-            RBTREE_Print(tree->left,tree->word,tree->key,-1);
-            RBTREE_Print(tree->right,tree->word,tree->key,1);
+        for(i=0;i< max;i++)
+        {
+            if(node->key[i] != NULL)
+            printf("(%d)%s ",node->key[i],node->word[i]);
+        }
+        printf("\n");
+
+        layer++;
+        for(i = 0;i < node->keyNum + 1;i++)
+        {
+            if(node->child[i] != NULL)
+                BTREE_Print(node->child[i],layer,max,i+1);
+        }
     }
+    else
+        printf("==树为空\n");
 }
-
+/*
 ///打印红黑树起点 调用RBTREE_Print函数
-void Print_BTREE(Tree *tree)
+void Print_BTREE(Tree *btree)
 {
-    if(tree != NULL && tree->root != NULL)
+    if(btree != NULL && btree->root != NULL)
     {
-        BTREE_Print(root->root);
+        BTREE_Print(btree->root,1,btree->max);
     }
-}
-*/
+}*/
+
 int main()
 {
-    char array[] = {
-        'G','G', 'M', 'P', 'X', 'A', 'C', 'D', 'E', 'J', 'K',
-        'N', 'O', 'R', 'S', 'T', 'U', 'V', 'Y', 'Z', 'F', 'X'
-    };
-    const int length = sizeof(array)/sizeof(char);
-    Tree *btree;
-    printf("====创建B树====\n");
-    create_BTree(&btree,3);
-    printf("====向B树插入结点====\n");
-    B_TREE_INSERT(btree,10,"w");
+    int a[] = {20, 10, 15, 14, 11, 19, 25, 51, 80};
+    char b[9][9] = {"a","abandon","avoid","amuse","bind","bike","beyond","clone","click"};
+    int i, ilen=sizeof(a)/sizeof(a[0]);
 
-    printf("");
+    Tree *btree;
+    //Tree *btree;
+    printf("====创建B树====\n");
+    create_BTree(&btree,4);
+    printf("====向B树插入结点====\n");
+    btree->root = create_node(btree);
+//    btree_insert(btree,btree->root,30);
+    for(i=0; i<ilen; i++)
+     {
+         btree->root = btree_insert(btree,btree->root,a[i],b[i]);
+//#if CHECK_INSERT
+         printf("== 添加节点: %s\n", b[i]);
+         printf("== 树的详细信息: \n");
+         BTREE_Print(btree->root,1,btree->max,1);
+         printf("\n");
+//#endif
+     }
+
+   // Print_BTREE(btree);
 
 }
