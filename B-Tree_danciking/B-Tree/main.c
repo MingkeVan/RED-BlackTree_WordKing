@@ -11,12 +11,15 @@ b) PiÎªÖ¸Ïò×ÓÊ÷¸ùµÄ½áµã£¬ÇÒÖ¸ÕëP(i-1)Ö¸Ïò×ÓÊ÷ÖÖËùÓĞ½áµãµÄ¹Ø¼ü×Ö¾ùĞ¡ÓÚKi£¬µ«¶¼´óÓ
 c) ¹Ø¼ü×ÖµÄ¸öÊın±ØĞëÂú×ã£º [ceil(m / 2)-1]<= n <= m-1¡£±ÈÈçÓĞj¸öº¢×ÓµÄ·ÇÒ¶½áµãÇ¡ºÃÓĞj-1¸ö¹Ø¼üÂë¡£
 */
 
+typedef int type;
+
+
 
 /*¶¨Òå bÊ÷µÄ½áµã½á¹¹*/
 typedef struct B_Tree_Node
 {
     int keyNum; //×î´óÎªm-1
-    int *key;//¹Ø¼ü×ÖÏòÁ¿
+    type *key;//¹Ø¼ü×ÖÏòÁ¿
     char **word;
     struct B_Tree_Node **child;//×ÓÊ÷Ö¸ÕëÏòÁ¿  Ö¸Ïò¶ù×ÓµÄÖ¸ÕëÔÙÖ¸ÏòÆäÖĞÄ³Ò»¸ö¶ù×Ó
     struct B_Tree_Node *parent;//Ö¸Ïò¸¸½áµãµÄÖ¸Õë
@@ -184,7 +187,7 @@ void B_TREE_SPLIT(Tree *btree,Node* parentNode,Node* node,int pos)
         }
 }
 
-void btree_InsertNoneFull(Tree *btree,Node *node,int key,char *word)
+void btree_InsertNoneFull(Tree *btree,Node *node,type key,char *word)
 {
     int i;
     Node* child;
@@ -235,7 +238,7 @@ void btree_InsertNoneFull(Tree *btree,Node *node,int key,char *word)
     }
 }
 
-Node* btree_insert(Tree *btree,Node* node,int key,char* word)
+Node* btree_insert(Tree *btree,Node* node,type key,char* word)
 {
     Node* newNode;
     /* ¼ì²éÊÇ·ñ¸ù½ÚµãÒÑÂú£¬Èç¹ûÒÑÂú£¬·ÖÁÑ²¢Éú³ÉĞÂµÄ¸ù½Úµã */
@@ -289,16 +292,123 @@ Node* btree_min(Node* node)
     return newNode;
 }
 
+void right_rotate(Node* parentNode,Node* currentNode,Node* nearNode,int i)
+{
+    int j;
+    for(j = currentNode->keyNum - 1;j>=0;j--)
+        {
+            currentNode->key[j+1] = currentNode->key[j];
+            currentNode->word[j+1] = currentNode->word[j];
+        }
+
+
+    currentNode->key[0] = parentNode->key[i-1];
+    currentNode->word[0] = parentNode->word[i-1];
+    parentNode->key[i-1] = nearNode->key[nearNode->keyNum - 1];
+    parentNode->word[i-1] = nearNode->word[nearNode->keyNum - 1];
+    nearNode->key[nearNode->keyNum - 1] = NULL;
+    nearNode->word[nearNode->keyNum - 1] = NULL;
+
+    if(currentNode->child[0] != NULL)
+    {
+        for(j = currentNode->keyNum;j>=0;j--)
+            currentNode->child[j+1] = currentNode->child[j];
+
+        currentNode->child[0] = nearNode->child[nearNode->keyNum];
+    }
+
+    currentNode->keyNum ++;
+    nearNode->keyNum --;
+}
+void left_rotate(Node* parentNode,Node* currentNode,Node* nearNode,int i)
+{
+    int j;
+    currentNode->key[currentNode->keyNum] = parentNode->key[i];
+    currentNode->word[currentNode->keyNum] = parentNode->word[i];
+    parentNode->key[i] = nearNode->key[0];
+    parentNode->word[i] = nearNode->word[0];
+
+    for(j = 0;j<nearNode->keyNum - 1;j++)
+        {
+            nearNode->key[j] = nearNode->key[j+1];
+            nearNode->word[j] = nearNode->word[j+1];
+        }
+
+    nearNode->key[nearNode->keyNum - 1] = NULL;
+    nearNode->word[nearNode->keyNum - 1] = NULL;
+
+    if(currentNode->child[0] != NULL)
+    {
+        currentNode->child[currentNode->keyNum +1] = nearNode->child[0];
+
+        for(j = 0;j<nearNode->keyNum;j++)
+            nearNode->child[j] = nearNode->child[j+1];
+    }
+
+    currentNode->keyNum ++;
+    nearNode->keyNum --;
+}
     //remove
     // ¶Ô tree ÖĞµÄ½Úµã node ½øĞĞºÏ²¢º¢×Ó½Úµã´¦Àí.
 	// ×¢Òâ£ºº¢×Ó½ÚµãµÄ keynum ±ØĞë¾ùÒÑ´ïµ½ÏÂÏŞ£¬¼´¾ùµÈÓÚ BTree_D - 1
     // ½« tree ÖĞË÷ÒıÎª index µÄ key ÏÂÒÆÖÁ×óº¢×Ó½áµãÖĞ£¬
 	// ½« node ÖĞË÷ÒıÎª index + 1 µÄº¢×Ó½ÚµãºÏ²¢µ½Ë÷ÒıÎª index µÄº¢×Ó½ÚµãÖĞ£¬ÓÒº¢×ÓºÏ²¢µ½×óº¢×Ó½áµãÖĞ¡£
 	// ²¢µ÷Ïà¹ØµÄ key ºÍÖ¸Õë¡£
-	void BTree_merge_child(Tree* btree, Node* node,Node* parent, int key)
+	int BTree_merge_child(Tree* btree, Node* parent, int loc)
 	{
 	    int i;
-	    ///µ±Ç°½ÚµãÊÇ¸ù½áµã ²»±ØºÏ²¢
+	    Node* lNode;
+	    Node* rNode;
+
+	    if(loc == parent->keyNum)
+        {
+          loc --;
+        }
+
+        lNode = parent->child[loc];
+        rNode = parent->child[loc + 1];
+
+        int temp = lNode->keyNum;
+
+        lNode->key[lNode->keyNum] = parent->key[loc];
+        lNode->word[lNode->keyNum] = parent->word[loc];
+
+        lNode->keyNum++;
+        for(i = 0;i < rNode->keyNum;i++)
+        {
+            lNode->key[lNode->keyNum+i] = rNode->key[i];
+            lNode->word[lNode->keyNum+i] = rNode->word[i];
+            lNode->keyNum++;
+        }
+        if(rNode->child[0] !=NULL)
+        {
+            for(i=0;i<=rNode->keyNum;i++)
+                lNode->child[temp+i+1] = rNode->child[i];
+        }
+
+        rNode->keyNum = 0;
+       // lNode->keyNum = btree->max;
+
+        for(i = loc;i<parent->keyNum - 1;i++)
+        {
+            parent->key[i]= parent->key[i+1];
+            parent->word[i]= parent->word[i+1];
+            parent->child[i+1] = parent->child[i+2];
+        }
+
+        parent->key[parent->keyNum - 1] = NULL;
+        parent->word[parent->keyNum - 1] = NULL;
+        parent->child[parent->keyNum] = NULL;
+        parent->keyNum --;
+        rNode = NULL;
+        //if(parent->keyNum == 0)
+       // {
+         //   parent = lNode;
+        //}
+
+
+        return loc;
+/*	    ///µ±Ç°½ÚµãÊÇ¸ù½áµã ²»±ØºÏ²¢
 	    if(parent == NULL)
         {
             if(node->keyNum == 0)
@@ -354,28 +464,27 @@ Node* btree_min(Node* node)
         else///Èç¹ûÔÚÖĞ¼äµÄº¢×Ó½áµãÉÏ
         {
             if()
-        }
+        }*/
 	}
 
 	///É¾³ıÖ÷Òª·ÖÁ½ÖÖÇé¿ö Ò»ÖÖÊÇÒªÉ¾³ıkey²»ÔÚµ±Ç°½Úµã Ò»ÖÖÊÇÒªÉ¾³ıkeyÔÚµ±Ç°½áµã
 
-	void btree_delete(Tree *btree,Node* node,int key)
+	void btree_delete_node(Tree *btree,Node* node,type key,char *word)
 	{
 	    int i = 0;
-	    int temp;
+	    int j;
+	    type tempkey;
+	    char *tempword;
 
-	    while(i < node->keyNum)
+	    ///ÕÒ³öÉ¾³ıÎ»ÖÃ µ±µ±Ç°½Úµã±éÀúÍê »òÕß keyĞ¡ÓÚµÈÓÚµ±Ç°½ÚµãÄ³¸ökeyÊ± Ìø³öÑ­»·
+	    while(i < node->keyNum && key > node->key[i])
         {
-            if(key <= node->key[i])
-            {
-             break;
-            }
             i++;
         }
 
 
 
-	/*======================º¬ÓĞkeyµÄµ±Ç°½áµãÊ±µÄÇé¿ö====================
+	/*======================º¬ÓĞkeyµÄµ±Ç°½áµãÊ±µÄÇé¿ö========node->key[i]============
 	2. node:
 	3. index of Key:            i-1  i  i+1
 	4.                         +---+---+---+---+
@@ -392,6 +501,8 @@ Node* btree_min(Node* node)
          ///ÔÚ¸Ã²ã ÇÒ ¿ÉÒÔÕÒµ½¸ÃÖµ
          if(i < node->keyNum && key == node->key[i])
          {
+
+
              /// case1:Èç¹ûÊÇÒ¶×Ó½áµã Ö±½ÓÉ¾³ı
              if(node->child[0] == NULL)
              {
@@ -399,115 +510,105 @@ Node* btree_min(Node* node)
                      for(j = i;j < node->keyNum - 1;j++)
                      {
                          node->key[j]=node->key[j+1];
+                         node->word[j]=node->word[j+1];
                      }
                  node->key[node->keyNum - 1] = 0;
+                 node->word[node->keyNum - 1] = 0;
                  node->keyNum --;
 
-                 if(node->keyNum < btree->min)
-                 {
-                     BTree_merge_child(btree,node,node->parent);
-                 }
+                 //if(node->keyNum < btree->min)
+                // {
+                  //  BTree_merge_child(btree,node,node->parent);
+                // }
                 // for(j = )
              }
-             else
+            else
              {
-                 /*É¾³ıµÄÖµÔÚµ±Ç°½Úµã ¾ÍÕÒÆäÇ°Çı»òºó¼Ì£¨±ØÊÇÒ¶½Úµã£© µ÷»»ºóÉ¾³ıÒ¶½Úµã
+                  /*É¾³ıµÄÖµÔÚµ±Ç°½Úµã ¾ÍÕÒÆäÇ°Çı»òºó¼Ì£¨±ØÊÇÒ¶½Úµã£© µ÷»»ºóÉ¾³ıÒ¶½Úµã
 	              * µ±Ç°ÓÚ¸ÃÎ»ÖÃµÄ¹Ø¼ü×ÖµÄ×ó×Ó½áµã¹Ø¼ü×Ö¸öÊı´óÓÚµÈÓÚTÊ±£¬
 	              * Ñ°ÕÒ¸ÃÎ»ÖÃµÄ¹Ø¼üµÄÇ°Çı£¨×ó×Ó½áµãµÄ×î´ó¹Ø¼ü×Ö£©
 	              */
-                 if(node->child[i]->keyNum >= btree->min)
+
+                 if(node->child[i]->keyNum > btree->min)/////////////////////////////XIUGAI
                  {
                      Node* newNode;
                      newNode = btree_max(node->child[i]);
-                     temp = node->key[i];
+                     tempkey = node->key[i];
+                     tempword = node->word[i];
                      node->key[i] = newNode->key[newNode->keyNum - 1];
-                     newNode->key[newNode->keyNum - 1] = temp;
+                     node->word[i] = newNode->word[newNode->keyNum - 1];
+                     newNode->key[newNode->keyNum - 1] = tempkey;
+                     newNode->word[newNode->keyNum - 1] = tempword;
                  }
-                 else if(node->child[i+1]->keyNum >= btree->min)
+                 else if(node->child[i+1]->keyNum > btree->min)////////////////////////////////////////////XIUGAI
                  {
                      Node* newNode;
                      newNode = btree_min(node->child[i+1]);
-                     temp = node->key[i];
+                     tempkey = node->key[i];
+                     tempword = node->word[i];
                      node->key[i] = newNode->key[0];
-                     newNode->key[0] = temp;
+                     node->word[i] = newNode->word[0];
+                     newNode->key[0] = tempkey;
+                     newNode->word[0] = tempword;
                      ///½»»»Íê  ÕÒµ½ÏàÓ¦µÄi Ö´ĞĞÉ¾³ı²Ù×÷
                      i++;
                  }
                  ///Á½¸ö¶ù×Ó¶¼ºÜÇî Ö»ÄÜºÏÌåÁË
                  else
                  {
-                     i = BTree_merge_child(node,i);
+                     i = BTree_merge_child(btree,node,i);
                  }
                  ///½»»»Íê  ÕÒµ½ÏàÓ¦µÄi Ö´ĞĞÉ¾³ı²Ù×÷ µİ¹éµ÷ÓÃ Ò»²ãÒ»²ãÍùÏÂ
-                 btree_delete(btree,node->child[i],key);
+                 btree_delete_node(btree,node->child[i],key,word);
              }
          }
+
          ///µ±Ç°½ÚµãÕÒ²»µ½key µ«ÔÚÏÂÒ»²ã¿ÉÒÔÕÒµ½key ¼´ÒªÉ¾³ıµÄÖµ²»ÔÚµ±Ç°½áµã
          else
          {
+             //if(i == node->keyNum)
+      // {
+          //  i--;
+        //}
              if(node->child[0] == NULL)
              {
                  printf("***²»´æÔÚÒªÉ¾³ıµÄÖµ\n");
              }
              else
              {
-                 ///Èç¹ûÒªÉ¾³ıµÄÖµÔÚµ±Ç°½áµãµÄº¢×Ó·ÖÖ§ÉÏ Ö´ĞĞµİ¹éÉ¾³ı
-                 if(node->child[i]->keyNum >= btree->min)
-                    btree_delete(btree,node->child[i],key);
+                 ///Èç¹ûÒªÉ¾³ıµÄÖµÔÚµ±Ç°½áµãµÄº¢×Ó·ÖÖ§ÉÏ Ö´ĞĞµİ¹éÉ¾³ı ////////////////ĞèÅĞ¶ÏÊÇµÈÓÚ»¹ÊÇ´óÓÚ
+                 if(node->child[i]->keyNum > btree->min)
+                    btree_delete_node(btree,node->child[i],key,word);
                 ///Èç¹ûÕâ¸öº¢×Ó·ÖÖ§Ì«Çî ÄÇ¾ÍÒª¿´ËûµÄĞÖµÜ ĞÖµÜ¿ÉÒÔ½è¾Í½è
-                 else if(i>0 && node->child[i-1]->keyNum >btree->min)
-                 {
-                     ///½øĞĞ¾Ö²¿ÓÒĞı ×óĞÖµÜ¸»Ô£
-                     for(j = node->child[i]->keyNum - 1;j>=0;j--)
-                     node->child[i]->key[j+1] = node->child[i]->key[j];
-
-                     node->child[i]->key[0] = node->key[i];
-                     node->key[i] = node->child[i-1]->key[node->child[i-1]->keyNum - 1];
-
-                     if(node->child[i]->child[0] != NULL)
-                     {
-                         for(j = node->child[i]->keyNum;j>=0;j--)
-                          node->child[i]->child[j+1] = node->child[i]->child[j];
-
-                          node->child[i]->child[0] = node->child[i-1]->child[node->child[i-1]->keyNum];
-                     }
-
-                     node->child[i]->keyNum ++;
-                     node->child[i-1]->keyNum --;
-                 }
-                 else if(i>0 && node->child[i+1]->keyNum >btree->min)
-                 {
-                     ///½øĞĞ¾Ö²¿×óĞı ÓÒĞÖµÜ¸»Ô£
-                     node->child[i]->key[node->child[i]->keyNum] = node->key[i];
-                     node->key[i] = node->child[i+1]->key[0];
-
-                     for(j = 0;j<node->child[i+1]->keyNum - 1;j++)
-                     node->child[i+1]->key[j] = node->child[i+1]->key[j+1];
-
-                     node->child[i+1]->key[node->child[i+1]->keyNum - 1] = NULL;
-
-
-                     if(node->child[i]->child[0] != NULL)
-                     {
-                         node->child[i]->child[node->child[i]->keyNum +1] = node->child[i-1]->child[0];
-
-                         for(j = 0;j<node->child[i+1]->keyNum;j++)
-                          node->child[i+1]->child[j] = node->child[i+1]->child[j+1];
-                     }
-
-                     node->child[i]->keyNum ++;
-                     node->child[i+1]->keyNum --;
-                 }
                  else
-                    i = BTree_merge_child(btree,node,i);
-
-                 ///ĞèÒªºÏ²¢Èı¸ö½áµã ²ÅÄÜÖ´ĞĞÉ¾³ı
-                 btree_delete(btree,node->child[i],key);
+                 {
+                      if(i>0 && node->child[i-1]->keyNum > btree->min)
+                      {
+                        ///½øĞĞ¾Ö²¿ÓÒĞı ×óĞÖµÜ¸»Ô£
+                        right_rotate(node,node->child[i],node->child[i-1],i);
+                      }/////////////////////////////////////////////////////////////////////////////////////////////////
+                       else if(i < node->keyNum  && node->child[i+1]->keyNum >btree->min)
+                      {
+                        ///½øĞĞ¾Ö²¿×óĞı ÓÒĞÖµÜ¸»Ô£
+                        left_rotate(node,node->child[i],node->child[i+1],i);
+                      }
+                       else
+                         i = BTree_merge_child(btree,node,i);
+                       ///ĞèÒªºÏ²¢Èı¸ö½áµã ²ÅÄÜÖ´ĞĞÉ¾³ı
+                       btree_delete_node(btree,node->child[i],key,word);
+                 }
              }
          }
+}
 
+	void btree_delete(Tree* btree,type key,char* word)
+	{
+	    btree_delete_node(btree,btree->root,key,word);
 
-
+	    if(btree->root->keyNum == 0 && btree->root->child[0] != NULL)
+        {
+            btree->root = btree->root->child[0];
+        }
 	}
 
 
@@ -522,7 +623,20 @@ int B_TREE_INSERT(Tree *btree,int k,char* word)
     ///¹¹½¨µÚÒ»¸önode
     if(node == NULL)
     {
-        ///¸ù¾İ½á¹¹ÌåtreeÀïµÄmax min´´½¨½áµã
+        ///¸ù¾İ½á¹¹ÌåtreeÀïµÄmax min´´½¨½áµãif(i>0 && node->child[i-1]->keyNum > btree->min)
+                      {
+                        ///½øĞĞ¾Ö²¿ÓÒĞı ×óĞÖµÜ¸»Ô£
+                        right_rotate(node,node->child[i],node->child[i-1],i);
+                      }/////////////////////////////////////////////////////////////////////////////////////////////////
+                       else if(i < node->keyNum - 1 && node->child[i+1]->keyNum >btree->min)
+                      {
+                        ///½øĞĞ¾Ö²¿×óĞı ÓÒĞÖµÜ¸»Ô£
+                        left_rotate(node,node->child[i],node->child[i+1],i);
+                      }
+                       else
+                         i = BTree_merge_child(btree,node,i);
+                       ///ĞèÒªºÏ²¢Èı¸ö½áµã ²ÅÄÜÖ´ĞĞÉ¾³ı
+                       btree_delete_node(btree,node->child[i],key);
         node = create_node(btree);
         if(node == NULL)
         {
@@ -637,9 +751,13 @@ void BTREE_Print(Node *node,int layer,int max,int ith)
 
 int main()
 {
-    int a[] = {20, 10, 15, 14, 11, 19, 25, 51, 80};
-    char b[9][9] = {"a","abandon","avoid","amuse","bind","bike","beyond","clone","click"};
+    //type a[] = {'F','S','Q','K','C','L','H','T','V','W','M','R','N','P','A','B','X','Y','D','Z','E','H','T','V','W','M','R','N','P','M','R','N','P','A','B','X','Y','D','Z','E'};
+    //type c[] = {'Y','W','Q','X','K','B','H','P','T','F','M'};
+    char b[][9] = {"a","abandon","avoid","amuse","bind","bike","beyond","clone","click","S","S","J","J","U","L","N","A","Z","G","E","Q","k","k","l","k","k","k","l","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k"};
+   static type a[]={12,3,4,5,7,3,5,0,3289,45,324,66,45,34,435,3,435,4,56,867,54,7,97,565,3,2,2,23,465465,32,234,54654,634,6,46,4576,543,34,5,35,46,999,534,6,34,634,6,546345,52,5,43,64,6,4,56435,4,545};
+   type c[]={12,3,4,5,7,3,5,0,3289,45,324,66,45,34,435,3,435,4,56,867,54,7,97,565,3,2,2,23,465465,32,234,54654,634,6,46,4576};
     int i, ilen=sizeof(a)/sizeof(a[0]);
+    int clen = sizeof(c)/sizeof(a[0]);
 
     Tree *btree;
     //Tree *btree;
@@ -648,17 +766,29 @@ int main()
     printf("====ÏòBÊ÷²åÈë½áµã====\n");
     btree->root = create_node(btree);
 //    btree_insert(btree,btree->root,30);
-    for(i=0; i<ilen; i++)
+    for(i=0; i < ilen; i++)
      {
-         btree->root = btree_insert(btree,btree->root,a[i],b[i]);
+         //b[i][9] = "adf";
+          btree->root = btree_insert(btree,btree->root,a[i],b[i]);
 //#if CHECK_INSERT
-         printf("== Ìí¼Ó½Úµã: %s\n", b[i]);
+         printf("== Ìí¼Ó½Úµã: %d\n", a[i]);
          printf("== Ê÷µÄÏêÏ¸ĞÅÏ¢: \n");
          BTREE_Print(btree->root,1,btree->max,1);
          printf("\n");
 //#endif
      }
 
+     for(i=0; i<ilen; i++)
+     {
+         btree_delete(btree,a[i],b[i]);
+//#if CHECK_DELETE
+         printf("== É¾³ı½Úµã: %d\n", a[i]);
+         printf("== Ê÷µÄÏêÏ¸ĞÅÏ¢: \n");
+         BTREE_Print(btree->root,1,btree->max,1);
+         printf("\n");
+//#endif
+     }
    // Print_BTREE(btree);
+   system("pause");
 
 }
