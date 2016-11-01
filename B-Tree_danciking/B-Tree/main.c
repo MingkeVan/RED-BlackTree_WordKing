@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 /*m阶b树
 树中每个结点最多含有m个孩子（m>=2）；
 除根结点和叶子结点外，其它每个结点至少有[ceil(m / 2)]个孩子（其中ceil(x)是一个取上限的函数）；
@@ -13,7 +14,8 @@ c) 关键字的个数n必须满足： [ceil(m / 2)-1]<= n <= m-1。比如有j个孩子的非叶结点恰
 
 typedef int type;
 
-
+int m;///记录排序序号
+int sum;
 
 /*定义 b树的结点结构*/
 typedef struct B_Tree_Node
@@ -190,6 +192,7 @@ void B_TREE_SPLIT(Tree *btree,Node* parentNode,Node* node,int pos)
 void btree_InsertNoneFull(Tree *btree,Node *node,type key,char *word)
 {
     int i;
+    int j=0;///在找到熟悉度key后 再用j进行循环得到 根据单词序的插入位置
     Node* child;
 
     i = node->keyNum;
@@ -206,23 +209,69 @@ void btree_InsertNoneFull(Tree *btree,Node *node,type key,char *word)
             node->word[i] = node->word[i-1];
             continue;
         }
+        else
+            if(key == node->key[i-1])
+            {
+                if(strcmpi(word,node->word[i-1]) <0)
+                {
+                    ///关键字会变多
+                    node->key[i] = node->key[i-1];
+                    node->word[i] = node->word[i-1];
+                    continue;
+                }
+
+            }
             break;
       }
-      ///此处i是多少 需调整
+
+      if(strcmpi(word,node->word[i]) == 0)
+      {
+          for(j = i;j < node->keyNum;j++)
+          {
+              node->key[j] = node->key[j+1];
+            node->word[j] = node->word[j+1];
+          }
+      }
+      else{
+        ///此处i是多少 需调整
       node->key[i] = key;
       node->word[i] = word;
       node->keyNum++;
+      }
     }
-    else{
+    else
+   {
             ///找出应该插入的孩子节点
-         for(i=node->keyNum; i > 0 ; i--)
+      /*   for(i=node->keyNum; i > 0 ; i--)
       {
         if(key < node->key[i-1])
         {
             continue;
         }
             break;
+      }*/
+
+      for(i=node->keyNum; i > 0 ; i--)
+      {
+        if(key < node->key[i-1])
+        {
+            continue;
+        }
+        else
+            if(key == node->key[i-1])
+            {
+                if(strcmpi(word,node->word[i-1]) <0)
+                {
+                    continue;
+                }
+                else if(strcmpi(word,node->word[i-1]) == 0)
+                {
+                    return;
+                }
+            }
+        break;
       }
+
       child = node->child[i];
     if(child->keyNum == btree->max)
     {
@@ -231,6 +280,15 @@ void btree_InsertNoneFull(Tree *btree,Node *node,type key,char *word)
         ///若 key比兴顶上来的值大 则 接下来应该切向右孩子 即i++
         if(key > node->key[i])
             i++;
+            else if(key == node->key[i])
+            {
+                if(strcmpi(word,node->word[i]) > 0)
+                {
+                    i++;
+                }
+
+            }
+
     }
     ///将结点切向孩子节点
     child = node->child[i];
@@ -482,6 +540,15 @@ void left_rotate(Node* parentNode,Node* currentNode,Node* nearNode,int i)
             i++;
         }
 
+        ///当key小于等于当前key时 需要再根据字典序查找删除位置
+        if(key == node->key[i])
+        {
+            while(i < node->keyNum && strcmpi(word,node->word[i]) > 0)
+                {
+                    i++;
+                }
+        }
+
 
 
 	/*======================含有key的当前结点时的情况========node->key[i]============
@@ -499,7 +566,7 @@ void left_rotate(Node* parentNode,Node* currentNode,Node* nearNode,int i)
 	13.                     leftChild     rightChild
 	14. ============================================================*/
          ///在该层 且 可以找到该值
-         if(i < node->keyNum && key == node->key[i])
+         if(i < node->keyNum && key == node->key[i] && strcmp(word,node->word[i]) == 0)
          {
 
 
@@ -713,6 +780,61 @@ int B_TREE_INSERT(Tree *btree,int k,char* word)
 }
 */
 
+char* inorder_BTree(Node *node,int num)
+{
+    int i;
+    char* a;
+    if(node != NULL)
+    {
+        for(i = node->keyNum;i > 0;i--)
+        {
+           //if(key == node->key[i])
+
+
+           if(node->child[i] != NULL)
+           inorder_BTree(node->child[i],num);
+
+           //printf("%s(%d)\n",node->word[i-1],node->key[i-1]);
+           if(m++ == num)
+           {
+               printf("%s(%d)\n",node->word[i-1],node->key[i-1]);
+               printf("== 熟悉度为第%d大的单词为%s\n",num,node->word[i-1]);
+               return node->word[i-1];
+           }
+        }
+         if(node->child[0] != NULL)
+        inorder_BTree(node->child[0],num);
+    }
+
+}
+
+int Aggregate_BTree(Node *node,int num)
+{
+    int i;
+    char* a;
+    if(node != NULL)
+    {
+        for(i = node->keyNum;i > 0;i--)
+        {
+           //if(key == node->key[i])
+
+
+           if(node->child[i] != NULL)
+           Aggregate_BTree(node->child[i],num);
+
+           //printf("%s(%d)\n",node->word[i-1],node->key[i-1]);
+           if(m++ == num)
+           {
+               printf("%s(%d)\n",node->word[i-1],node->key[i-1]);
+               printf("== 熟悉度为第%d大的单词为%s\n",num,node->word[i-1]);
+               sum += node->key[i-1];
+           }
+        }
+         if(node->child[0] != NULL)
+        Aggregate_BTree(node->child[0],num);
+    }
+
+}
 
 /*
 * 打印"红黑树"
@@ -723,16 +845,16 @@ int B_TREE_INSERT(Tree *btree,int k,char* word)
 *               -1，表示该节点是它的父结点的左孩子;
 *                1，表示该节点是它的父结点的右孩子。
 */
-void BTREE_Print(Node *node,int layer,int max,int ith)
+void BTREE_Print(Node *node,int layer,int ith)
 {
     int i;
     if(node != NULL)
     {
         printf("===第%d层====第%d个结点:",layer,ith);
 
-        for(i=0;i< max;i++)
+        for(i=0;i< node->keyNum;i++)
         {
-            if(node->key[i] != NULL)
+            if(node->key[i] >= 0)
             printf("(%d)%s ",node->key[i],node->word[i]);
         }
         printf("\n");
@@ -741,7 +863,7 @@ void BTREE_Print(Node *node,int layer,int max,int ith)
         for(i = 0;i < node->keyNum + 1;i++)
         {
             if(node->child[i] != NULL)
-                BTREE_Print(node->child[i],layer,max,i+1);
+                BTREE_Print(node->child[i],layer,i+1);
         }
     }
     else
@@ -753,8 +875,8 @@ int main()
 {
     //type a[] = {'F','S','Q','K','C','L','H','T','V','W','M','R','N','P','A','B','X','Y','D','Z','E','H','T','V','W','M','R','N','P','M','R','N','P','A','B','X','Y','D','Z','E'};
     //type c[] = {'Y','W','Q','X','K','B','H','P','T','F','M'};
-    char b[][9] = {"a","abandon","avoid","amuse","bind","bike","beyond","clone","click","S","S","J","J","U","L","N","A","Z","G","E","Q","k","k","l","k","k","k","l","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k"};
-   static type a[]={12,3,4,5,7,3,5,0,3289,45,324,66,45,34,435,3,435,4,56,867,54,7,97,565,3,2,2,23,465465,32,234,54654,634,6,46,4576,543,34,5,35,46,999,534,6,34,634,6,546345,52,5,43,64,6,4,56435,4,545};
+    char b[][9] = {"B","abandon","avoid","amuse","bind","bike","beyond","clone","click","cling","clicking","J","J","j","j","N","A","Z","G","E","Q","k","k","l","k","k","k","l","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k","k"};
+   static type a[]={12,12,4,5,7,3,5,0,0,0,0,66,45,34,435,3,435,4,56,867,54,7,97,565,3,2,2,23,465465,32,234,54654,634,6,46,4576,543,34,5,35,46,999,534,6,34,634,6,546345,52,5,43,64,6,4,56435,4,545};
    type c[]={12,3,4,5,7,3,5,0,3289,45,324,66,45,34,435,3,435,4,56,867,54,7,97,565,3,2,2,23,465465,32,234,54654,634,6,46,4576};
     int i, ilen=sizeof(a)/sizeof(a[0]);
     int clen = sizeof(c)/sizeof(a[0]);
@@ -773,22 +895,93 @@ int main()
 //#if CHECK_INSERT
          printf("== 添加节点: %d\n", a[i]);
          printf("== 树的详细信息: \n");
-         BTREE_Print(btree->root,1,btree->max,1);
+         BTREE_Print(btree->root,1,1);
          printf("\n");
 //#endif
      }
+     inorder_BTree(btree->root,12);
 
-     for(i=0; i<ilen; i++)
+    /* for(i=0; i<ilen; i++)
      {
          btree_delete(btree,a[i],b[i]);
 //#if CHECK_DELETE
          printf("== 删除节点: %d\n", a[i]);
          printf("== 树的详细信息: \n");
-         BTREE_Print(btree->root,1,btree->max,1);
+         BTREE_Print(btree->root,1,1);
          printf("\n");
 //#endif
-     }
-   // Print_BTREE(btree);
+     }*/
+
+   int op;
+   int N;
+   int j = 0;
+   int k;
+   int l,r;
+   char* word;
+
+   printf("请输入操作次数: \n");
+   scanf("%d",&N);
+
+
+   while(j++ < N)
+   {
+    ///执行操作前先初始化数据
+    ///sum:case5中的熟悉度综合
+    ///m:从大到小遍历红黑树时的序号
+    sum = 0;
+    m = 1;
+    printf("请输入操作类型和第几个数: \n");
+    //scanf("%d %d",&op,&k);
+    scanf("%d %d %d",&op,&l,&r);
+    switch(op){
+    ///Find
+    case 1:
+
+        word = inorder_BTree(btree->root,k);
+        //printf("== 熟悉度为第%d大的单词为%s\n",k,word);
+        break;
+    ///Insert
+    case 2:
+        btree->root = btree_insert(btree,btree->root,20,"storm");
+        printf("== 添加结点 树的详细信息: \n");
+        BTREE_Print(btree->root,1,1);
+        break;
+    ///Modify
+    case 3:
+        //inorder_DeleteNode(root->node,"click");
+        //RB_DELETE(root,deleteNode->key,deleteNode->word);
+        //RB_INSERT(root,10,"click");
+        btree_delete(btree,12,"B");
+        btree->root = btree_insert(btree,btree->root,17,"B");
+        printf("== 修改树的详细信息: \n");
+        BTREE_Print(btree->root,1,1);
+        break;
+    ///Delete
+    case 4:
+        //inorder_DeleteNode(root->node,"amuse");
+        //RB_DELETE(root,deleteNode->key,deleteNode->word);
+        btree_delete(btree,12,"B");
+        printf("== 删除树的详细信息: \n");
+        BTREE_Print(btree->root,1,1);
+        break;
+    ///Aggregate
+    case 5:
+        //m = 1;
+       // inorder_Aggregate(root->node,l,r);
+       for(i = l;i<=r;i++)
+       {
+           m = 1;
+           Aggregate_BTree(btree->root,i);
+       }
+        printf("== 从第%dth到第%dth的熟悉度总和为%d: \n",l,r,sum);
+        break;
+
+    default:
+        break;
+   }
+
+   }
+
    system("pause");
 
 }
