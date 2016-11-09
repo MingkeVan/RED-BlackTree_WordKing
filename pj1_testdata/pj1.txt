@@ -1,0 +1,2410 @@
+2000
+Insert regulations 27256602
+Delete regulations
+Insert collect 67338070
+Insert route 73061047
+Modify route 5482050
+Insert marketization 7494874
+Modify marketization 47540031
+Aggregate 1 2
+Aggregate 2 3
+Modify marketization 86829704
+Aggregate 2 3
+Modify marketization 18629243
+Delete collect
+Delete route
+Modify marketization 11316406
+Insert administrations 97538491
+Modify administrations 53893603
+Aggregate 1 2
+Insert lineman 71060682
+Aggregate 2 3
+Insert havoc 63335938
+Modify administrations 69696767
+Modify havoc 52156191
+Insert dock 34751839
+Delete dock
+Modify marketization 95130537
+Modify havoc 20128455
+Insert expects 66540063
+Delete lineman
+Delete expects
+Insert pump 84863888
+Find 3
+Insert yard 29254240
+Delete havoc
+Modify pump 30186429
+Delete pump
+Delete yard
+Delete marketization
+Insert nurtured 35867122
+Aggregate 1 2
+Find 2
+Insert discouraging 26493648
+Find 3
+Insert workmen 99959293
+Delete workmen
+Find 3
+Insert load 67558375
+Delete administrations
+Insert long 27469940
+Find 1
+Insert radiation 83543481
+Insert luck 16381140
+Find 1
+Insert wineries 95277577
+Insert dock 35682339
+Modify radiation 18934892
+Modify nurtured 97795619
+Modify dock 8525397
+Aggregate 3 5
+Modify long 27858740
+Delete wineries
+Modify radiation 36244166
+Find 5
+Insert southern 27260813
+Insert shorts 83765658
+Delete discouraging
+Find 5
+Insert stickler 27357779
+Insert outpost 65882363
+Delete long
+Insert distributes 16859235
+Delete load
+Insert growth 50153617
+Delete luck
+Modify southern 20696903
+Find 6
+Insert rulings 58887711
+Modify nurtured 98290018
+Find 3
+Insert comedic 5381875
+Insert amours 52546778
+Aggregate 1 3
+Insert crossed 48762217
+Delete outpost
+Insert unveiling 44465479
+Modify distributes 97565900
+Insert hitched 8209542
+Find 8
+Insert competed 70965344
+Aggregate 5 7
+Insert load 82193172
+Aggregate 5 10
+Delete stickler
+Find 1
+Insert methodically 76273191
+Find 11
+Insert innovations 32838586
+Delete shorts
+Aggregate 1 13
+Delete distributes
+Insert provider 64007743
+Aggregate 5 13
+Find 1
+Insert hog 28516458
+Delete southern
+Aggregate 4 16
+Aggregate 14 15
+Insert frightening 76489019
+Insert profiled 53840882
+Insert sipping 39360212
+Insert distributed 85098070
+Modify sipping 56820040
+Find 8
+Insert stashed 17571814
+Find 15
+Insert round 51141693
+Insert shrunk 65667433
+Insert long 36255017
+Insert homework 60942593
+Find 21
+Insert ensembles 12811082
+Modify round 82387003
+Find 7
+Insert festive 39661000
+Insert bylaws 66735547
+Insert modeling 441132
+Aggregate 28 29
+Modify competed 98201016
+Aggregate 4 11
+Delete crossed
+Modify profiled 64831543
+Delete round
+Aggregate 9 20
+Modify hog 33771173
+Aggregate 15 19
+Aggregate 3 22
+Modify stashed 24808129
+Delete growth
+Insert chanteuse 59792040
+Aggregate 25 26
+Delete competed
+Aggregate 4 17
+Delete distributed
+Find 22
+Insert hum 97864510
+Delete ensembles
+Aggregate 5 15
+Insert loot 60914707
+Modify hog 26370624
+Insert loft 41297690
+Delete rulings
+Aggregate 5 12
+Delete frightening
+Delete homework
+Find 9
+Insert ministers 12376460
+Delete load
+Find 9
+Insert bloodied 2439142
+Delete hog
+Insert subterranean 47315633
+Modify shrunk 27899504
+Find 11
+Insert gleefully 48171696
+Find 2
+Insert termination 52827925
+Modify long 31739587
+Aggregate 4 12
+Delete ministers
+Find 19
+Insert jewelers 11403108
+Find 6
+Insert outstrips 23768781
+Aggregate 15 25
+Delete nurtured
+Modify shrunk 45438085
+Modify loot 73002708
+Aggregate 1 25
+Find 2
+Insert weakens 40588347
+Aggregate 15 21
+Insert solemn 2226349
+Delete radiation
+Aggregate 21 23
+Delete solemn
+Delete bylaws
+Aggregate 23 24
+Insert mysteries 10709721
+Insert supremacy 16010339
+Aggregate 7 10
+Delete amours
+Insert radiation 62399189
+Insert crossed 50702324
+Delete shrunk
+Delete modeling
+Delete gleefully
+Find 23
+Insert despicable 8401284
+Aggregate 17 18
+Find 18
+Insert spilled 70500337
+Find 4
+Insert relenting 41237065
+Insert artificial 77338529
+Aggregate 14 25
+Find 16
+Insert solemn 66903943
+Insert contain 28930464
+Modify supremacy 88753634
+Find 7
+Insert venture 49982447
+Delete festive
+Modify dock 20204532
+Insert microcomputer 82577881
+Aggregate 10 18
+Find 16
+Insert arbitragers 53629375
+Insert safe 81507955
+Aggregate 3 33
+Delete mysteries
+Aggregate 7 21
+Delete unveiling
+Find 27
+Insert shouts 69238943
+Insert soybeans 3666208
+Delete relenting
+Insert evaporate 4426946
+Modify supremacy 76562230
+Delete shouts
+Delete comedic
+Insert producing 51389427
+Insert dragged 43949811
+Modify termination 88214573
+Delete methodically
+Modify producing 18096902
+Delete microcomputer
+Delete loot
+Aggregate 9 12
+Delete long
+Insert motorist 39125970
+Delete spilled
+Modify loft 65737148
+Insert whiplash 49483169
+Insert long 85833041
+Delete motorist
+Modify chanteuse 88003153
+Aggregate 13 30
+Aggregate 10 21
+Modify stashed 74373143
+Insert shouts 20821418
+Insert concealing 15510726
+Modify radiation 6736220
+Insert initialed 58121137
+Find 32
+Insert administrations 78050409
+Insert financer 15027955
+Insert looseleaf 19233102
+Delete loft
+Modify solemn 51822362
+Delete producing
+Find 8
+Insert attracting 14674127
+Find 9
+Insert growls 1616878
+Modify contain 95131775
+Insert hearings 86236341
+Insert hostile 59190304
+Modify jewelers 92568286
+Modify long 22284766
+Find 13
+Insert said 91404701
+Insert competes 3659415
+Modify hostile 64637153
+Insert peripherals 7976201
+Aggregate 15 33
+Find 12
+Insert dismaying 69643686
+Modify bloodied 8488898
+Delete long
+Delete competes
+Delete dismaying
+Delete termination
+Find 14
+Insert passivity 64182680
+Delete dragged
+Insert necessity 4863471
+Aggregate 6 18
+Aggregate 4 34
+Modify attracting 48451286
+Find 29
+Insert consciousness 95112621
+Delete necessity
+Find 1
+Insert distributed 25969511
+Modify venture 50986568
+Delete whiplash
+Find 2
+Insert demagogues 79508523
+Modify radiation 38464518
+Insert deletions 49822486
+Find 34
+Insert multisided 12320547
+Delete solemn
+Insert should 7506936
+Insert long 12931653
+Aggregate 2 10
+Find 15
+Insert loss 76368953
+Delete chanteuse
+Find 1
+Insert catastrophes 60215531
+Delete loss
+Modify demagogues 52176247
+Find 25
+Insert punk 71986907
+Aggregate 13 24
+Aggregate 14 30
+Find 13
+Insert anachronisms 55587059
+Find 38
+Insert repertoire 1664513
+Aggregate 6 32
+Aggregate 10 29
+Aggregate 16 24
+Aggregate 45 47
+Delete hum
+Find 39
+Insert workbooks 73958524
+Insert blackboard 87294488
+Aggregate 3 16
+Aggregate 25 38
+Find 38
+Insert necessity 57584701
+Find 3
+Insert raped 29000033
+Find 19
+Insert wreaking 89381590
+Modify radiation 9798965
+Find 30
+Insert leverage 3753265
+Modify hostile 43873444
+Insert retainer 13714146
+Delete innovations
+Delete hostile
+Delete retainer
+Delete deletions
+Aggregate 16 36
+Delete passivity
+Delete said
+Aggregate 35 38
+Find 30
+Insert attraction 6795089
+Delete artificial
+Insert spraying 3286552
+Delete distributed
+Delete repertoire
+Find 12
+Insert nifty 34581137
+Aggregate 24 48
+Modify contain 34231210
+Aggregate 14 47
+Find 15
+Insert mysteries 29526741
+Modify growls 53183249
+Modify jewelers 93471014
+Find 36
+Insert freeze 15929845
+Insert luck 79517712
+Delete growls
+Aggregate 10 38
+Delete luck
+Insert puny 56365619
+Modify soybeans 35027081
+Aggregate 16 49
+Delete workbooks
+Modify stashed 27651010
+Modify financer 22463674
+Insert wasted 890290
+Aggregate 7 44
+Modify subterranean 62963100
+Delete venture
+Aggregate 4 20
+Find 22
+Insert producing 49775240
+Modify producing 6435536
+Find 25
+Insert impounded 28416966
+Find 40
+Insert murky 6447982
+Find 50
+Insert reimpose 54230921
+Insert inspecting 87999578
+Insert staple 77418164
+Find 28
+Insert marketization 9942340
+Find 33
+Insert workmen 10631691
+Insert contractors 47925796
+Modify weakens 37130584
+Aggregate 24 51
+Delete jewelers
+Aggregate 26 56
+Modify outstrips 19555745
+Find 39
+Insert skiing 77927712
+Aggregate 2 37
+Aggregate 12 55
+Delete concealing
+Aggregate 43 54
+Delete staple
+Insert ladder 11690967
+Delete producing
+Aggregate 1 51
+Delete punk
+Modify contractors 62657767
+Aggregate 21 42
+Delete hitched
+Find 21
+Insert wineries 90034827
+Modify mysteries 66570185
+Modify skiing 46369162
+Insert vacancies 76026772
+Find 32
+Insert lender 98507578
+Delete profiled
+Find 42
+Insert fad 7044729
+Delete blackboard
+Find 1
+Insert shrunk 89120837
+Insert ill 48363756
+Modify ladder 74401803
+Insert orphan 22186302
+Insert dole 1748369
+Insert distributer 96416802
+Find 23
+Insert collect 43661483
+Modify fad 83066145
+Aggregate 44 46
+Insert lots 27168808
+Insert regulations 70869513
+Aggregate 7 12
+Delete lender
+Aggregate 20 55
+Find 19
+Insert stickler 30346644
+Delete stickler
+Insert luck 91597934
+Insert expects 36746908
+Aggregate 7 42
+Delete dole
+Delete catastrophes
+Aggregate 28 36
+Insert having 89343920
+Find 15
+Insert love 92734360
+Modify murky 29369499
+Delete puny
+Aggregate 33 36
+Insert round 22764246
+Delete evaporate
+Find 17
+Insert underutilized 96773537
+Delete collect
+Modify regulations 91008090
+Aggregate 15 35
+Delete luck
+Delete financer
+Aggregate 10 36
+Modify consciousness 67818532
+Delete administrations
+Delete radiation
+Aggregate 22 26
+Aggregate 20 35
+Find 60
+Insert look 8117623
+Aggregate 32 41
+Delete inspecting
+Find 51
+Insert milestone 88388273
+Insert financed 6612902
+Delete should
+Find 61
+Insert piecemeal 29390783
+Modify spraying 55385108
+Insert gobbled 12042882
+Delete shrunk
+Modify impounded 86229617
+Modify initialed 83531821
+Delete mysteries
+Delete looseleaf
+Find 21
+Insert small 95865824
+Find 60
+Insert nurtured 52880094
+Modify love 42078837
+Aggregate 8 35
+Aggregate 9 52
+Insert convocation 97491155
+Modify distributer 71467322
+Aggregate 22 42
+Insert touted 10561497
+Insert few 27487079
+Delete murky
+Insert impression 47755441
+Find 56
+Insert privatize 45421548
+Delete regulations
+Insert grovels 3031363
+Delete marketization
+Delete reimpose
+Find 7
+Insert storability 27708686
+Insert passivity 31139969
+Insert advisable 59564945
+Aggregate 18 61
+Modify convocation 24427065
+Insert change 20482830
+Delete change
+Delete despicable
+Find 33
+Insert fat 70274281
+Find 33
+Insert yank 64866787
+Find 6
+Insert smart 3659038
+Insert hydraulic 27083194
+Modify skiing 7854268
+Insert silence 43050274
+Delete crossed
+Modify spraying 71501369
+Insert puns 80292133
+Insert bulldozer 85999826
+Modify contain 39350839
+Modify dock 59925801
+Find 21
+Insert wrappers 43714269
+Delete arbitragers
+Modify milestone 16286803
+Modify convocation 93646255
+Modify lots 69639416
+Delete anachronisms
+Find 27
+Insert lender 41966985
+Find 23
+Insert handsome 42025635
+Insert methodically 72124094
+Find 21
+Insert rapid 40138901
+Aggregate 11 72
+Modify supremacy 75601337
+Modify weakens 63128833
+Delete lots
+Find 63
+Insert bylaws 41154143
+Modify few 86341287
+Find 1
+Insert loot 49020712
+Insert depends 89268690
+Find 26
+Insert teaching 230376
+Delete advisable
+Insert aluminum 83824838
+Find 7
+Insert distributes 46830472
+Find 47
+Insert fed 18482038
+Delete bylaws
+Aggregate 1 49
+Delete piecemeal
+Insert bombshell 70582625
+Delete fat
+Modify multisided 51828338
+Insert superstars 34361496
+Find 33
+Insert predict 43502189
+Modify sipping 95308777
+Find 56
+Insert motors 36944317
+Insert vehemently 59431095
+Insert affects 78967000
+Insert hampers 79137075
+Insert educating 43892528
+Aggregate 21 53
+Aggregate 31 69
+Insert loan 91331413
+Aggregate 12 83
+Delete having
+Aggregate 66 70
+Delete skiing
+Find 76
+Insert assertions 45175007
+Insert bristle 85534329
+Insert offsets 27750733
+Aggregate 5 6
+Insert ink 26563082
+Delete bristle
+Find 10
+Insert field 83394324
+Insert competed 77579964
+Modify demagogues 99732765
+Insert dangling 83499692
+Aggregate 1 48
+Insert aerodynamic 165659
+Modify necessity 29568529
+Delete field
+Modify vehemently 56060372
+Find 54
+Insert logo 55533832
+Delete orphan
+Find 52
+Insert deletions 53461936
+Insert gambling 24714606
+Insert secondary 22110330
+Delete consciousness
+Find 32
+Insert vanilla 81994158
+Aggregate 30 83
+Modify attracting 87062193
+Delete attraction
+Aggregate 21 87
+Insert sprightly 14096229
+Insert knocking 49093129
+Delete spraying
+Aggregate 2 51
+Aggregate 45 80
+Delete depends
+Aggregate 4 84
+Insert umbrellas 75917399
+Aggregate 42 72
+Find 46
+Insert lots 85194271
+Aggregate 30 84
+Find 25
+Insert singled 31751964
+Aggregate 25 51
+Aggregate 18 29
+Find 62
+Insert somersaulting 54845043
+Delete hearings
+Modify smart 80500025
+Modify wrappers 93748534
+Insert perilously 27946771
+Find 69
+Insert grower 70686382
+Aggregate 3 23
+Delete ill
+Insert perfectly 92894658
+Modify privatize 87087661
+Aggregate 28 83
+Find 57
+Insert arbitragers 62657850
+Find 47
+Insert administrations 13108040
+Insert logs 40125560
+Delete round
+Insert college 42965785
+Delete provider
+Aggregate 47 93
+Insert ensembles 61415702
+Insert directs 47492527
+Find 21
+Insert celebrate 31366165
+Find 26
+Insert puny 78824402
+Find 89
+Insert notch 49075551
+Delete financed
+Delete predict
+Find 46
+Insert does 94472377
+Insert kingpin 24482287
+Find 97
+Insert hoc 81498346
+Find 37
+Insert distributed 17544821
+Find 51
+Insert personality 66751408
+Find 104
+Insert homework 28403626
+Find 34
+Insert appreciation 88121603
+Insert portfolios 35229918
+Insert mysteries 30813419
+Insert remembering 61593971
+Modify silence 94599651
+Delete small
+Find 86
+Insert radiation 63295936
+Delete love
+Delete does
+Find 28
+Insert pump 51189390
+Delete portfolios
+Modify puns 87781865
+Find 95
+Insert brainchild 33467932
+Delete rapid
+Insert howdy 89485451
+Find 51
+Insert labeling 94757443
+Insert contended 77880330
+Find 113
+Insert creatures 30530994
+Aggregate 30 96
+Modify howdy 54274508
+Delete bulldozer
+Find 107
+Insert bylaws 32794026
+Delete administrations
+Modify wrappers 94822061
+Modify creatures 42592752
+Find 111
+Insert bumble 77030928
+Find 85
+Insert alternates 1964699
+Modify fed 15590132
+Modify safe 38966043
+Delete ensembles
+Insert consciousness 47517547
+Modify alternates 20331894
+Find 86
+Insert dome 70470480
+Find 54
+Insert caters 9721387
+Modify nurtured 45941819
+Delete umbrellas
+Delete caters
+Modify wasted 22390837
+Aggregate 89 112
+Insert wreak 71415990
+Insert sapped 41054842
+Aggregate 52 68
+Insert fee 81064576
+Aggregate 31 83
+Find 13
+Insert gadgets 19788666
+Find 110
+Insert fastest 34189181
+Delete initialed
+Find 111
+Insert crossed 26923840
+Insert richness 64746096
+Insert plugged 35875757
+Insert hug 45441585
+Find 75
+Insert statistics 8381250
+Delete sprightly
+Delete necessity
+Modify wasted 35548132
+Insert education 97118139
+Insert catastrophes 45559152
+Insert gleefully 24803876
+Delete nurtured
+Modify soybeans 41464658
+Insert journals 28739359
+Delete vacancies
+Insert whacky 67896080
+Delete demagogues
+Find 86
+Insert implement 79163117
+Delete underutilized
+Insert viable 18541631
+Find 12
+Insert junk 34170187
+Aggregate 71 90
+Delete somersaulting
+Find 85
+Insert reimpose 48761920
+Modify gadgets 73283256
+Delete howdy
+Delete ladder
+Aggregate 30 63
+Find 103
+Insert reallocated 54184422
+Find 1
+Insert voluntarily 46403503
+Aggregate 24 108
+Modify appreciation 46479543
+Aggregate 23 43
+Delete motors
+Aggregate 11 77
+Delete logo
+Find 64
+Insert confrontation 28822215
+Insert bulldozed 10653134
+Delete personality
+Delete singled
+Insert despicable 42687780
+Aggregate 35 117
+Find 72
+Insert stringently 19768062
+Find 99
+Insert providing 75083983
+Delete subterranean
+Delete hug
+Modify fastest 3621223
+Modify vanilla 49037544
+Delete aerodynamic
+Aggregate 25 36
+Aggregate 15 100
+Aggregate 14 17
+Find 112
+Insert evaporate 73791375
+Modify superstars 67740071
+Modify brainchild 21209053
+Insert cowardly 71295800
+Modify gobbled 12077903
+Aggregate 66 95
+Modify gadgets 86074434
+Find 111
+Insert inning 43543191
+Modify fee 23231445
+Modify attracting 72409566
+Modify loot 79740149
+Modify hoc 89415935
+Insert saga 96923644
+Delete stashed
+Modify milestone 42055544
+Modify loot 30146697
+Insert forgotten 63829554
+Delete lots
+Aggregate 12 52
+Aggregate 101 127
+Delete arbitragers
+Aggregate 108 117
+Insert perpetual 73724087
+Find 48
+Insert slogans 35750940
+Delete college
+Modify puns 17714731
+Aggregate 27 29
+Find 37
+Insert spraying 51797379
+Insert dislocation 38432127
+Aggregate 1 54
+Find 125
+Insert contributor 22662606
+Aggregate 49 90
+Modify grower 1590454
+Modify contended 20748089
+Insert small 83541889
+Find 94
+Insert boringly 31861794
+Delete look
+Insert fraudulent 23320909
+Aggregate 47 104
+Aggregate 76 115
+Delete brainchild
+Delete bumble
+Insert festive 63528270
+Insert unattainable 28112561
+Aggregate 12 69
+Delete fraudulent
+Insert palatial 58201966
+Find 2
+Insert yarn 2946777
+Find 38
+Insert wreck 52554275
+Find 29
+Insert zeroing 46982769
+Aggregate 17 94
+Modify bombshell 94862100
+Insert magicians 44780609
+Insert warfare 31831485
+Insert depends 920876
+Modify journals 81656668
+Insert retained 58131350
+Aggregate 26 42
+Aggregate 43 51
+Insert creativity 24472703
+Aggregate 68 110
+Aggregate 27 83
+Modify palatial 67977687
+Delete dock
+Modify directs 72985923
+Delete creativity
+Delete logs
+Delete labeling
+Delete inning
+Aggregate 16 109
+Insert attempts 59670950
+Insert token 53314669
+Aggregate 97 125
+Insert teased 47349604
+Modify weakens 23561386
+Aggregate 126 128
+Find 73
+Insert murky 44664713
+Modify multisided 30913900
+Modify teased 24345997
+Aggregate 22 51
+Modify weakens 14439120
+Find 104
+Insert impressive 67567018
+Modify alternates 68609554
+Insert inspecting 34225381
+Insert solely 83902523
+Insert bristle 84044492
+Delete affects
+Aggregate 14 127
+Delete unattainable
+Delete reimpose
+Delete wreak
+Find 47
+Insert responsive 73003893
+Modify leverage 22589498
+Modify perpetual 5115649
+Aggregate 29 125
+Aggregate 40 132
+Find 126
+Insert sack 33652014
+Find 65
+Insert cling 24811536
+Find 109
+Insert gravely 62105027
+Modify warfare 17297203
+Insert televisions 71133928
+Insert financed 18847964
+Modify solely 6745948
+Delete aluminum
+Delete implement
+Modify hoc 91097991
+Insert vacancies 30789034
+Delete gadgets
+Find 30
+Insert excerpts 99956893
+Find 37
+Insert round 69270398
+Modify puny 71496994
+Insert counting 25234860
+Delete journals
+Modify perfectly 11587404
+Find 21
+Insert demeanors 65977574
+Find 68
+Insert postings 19485097
+Insert profiles 55385936
+Modify dangling 96206013
+Find 75
+Insert eclectic 4987466
+Modify perilously 58064738
+Insert pubs 49761572
+Insert adults 31793795
+Insert drained 96437897
+Delete richness
+Modify adults 19116234
+Find 146
+Insert sensual 4672270
+Delete leverage
+Modify contractors 91876852
+Insert enterprising 62423324
+Insert dismaying 55528278
+Insert hotels 91494244
+Delete dislocation
+Modify competed 11768685
+Delete loot
+Find 9
+Insert dolt 69838092
+Find 94
+Insert accruing 16877197
+Aggregate 94 139
+Find 136
+Insert stalking 25032771
+Delete token
+Delete impounded
+Aggregate 9 136
+Modify sapped 53706541
+Find 63
+Insert brought 39825096
+Aggregate 2 131
+Insert deadliest 96438639
+Modify impressive 29718485
+Modify perilously 55391285
+Delete stringently
+Insert backup 15518015
+Delete privatize
+Find 82
+Insert change 93314598
+Modify vehemently 93560290
+Find 127
+Insert microscope 93016660
+Modify notch 3540400
+Find 156
+Insert blossomed 82530370
+Insert traded 24905005
+Delete hoc
+Aggregate 110 149
+Insert indeed 38397219
+Find 19
+Insert trades 10809793
+Aggregate 146 152
+Insert unveiling 86798596
+Delete demeanors
+Aggregate 21 50
+Modify excerpts 82794560
+Insert loom 76406850
+Find 113
+Insert far 40132385
+Modify voluntarily 86367214
+Delete workmen
+Delete wrappers
+Find 51
+Insert belfry 98607660
+Insert predict 38783137
+Modify accruing 15199846
+Find 22
+Insert bedeviled 73883884
+Find 120
+Insert lows 43564532
+Delete magicians
+Aggregate 102 140
+Insert necessity 74430356
+Modify raped 37264023
+Delete education
+Find 127
+Insert aparently 69688464
+Aggregate 33 144
+Aggregate 9 27
+Aggregate 31 148
+Delete sapped
+Aggregate 61 86
+Modify supremacy 22497605
+Find 137
+Insert piecemeal 7027848
+Insert uniramous 15866350
+Find 118
+Insert tomorrow 64329271
+Delete providing
+Aggregate 44 138
+Insert syndicate 45913062
+Insert singled 11728679
+Aggregate 12 35
+Delete notch
+Modify blossomed 48569492
+Aggregate 18 119
+Aggregate 95 109
+Insert transatlantic 44253414
+Aggregate 40 141
+Modify gambling 48328089
+Insert comparing 98652380
+Modify responsive 81941428
+Delete retained
+Aggregate 93 98
+Find 92
+Insert loud 76808294
+Find 152
+Insert landowner 69719259
+Modify fee 7865258
+Insert loot 11804565
+Find 57
+Insert caters 28466292
+Find 80
+Insert overrode 32790002
+Aggregate 18 156
+Modify remembering 12630895
+Aggregate 20 38
+Find 49
+Insert dons 69589408
+Delete freeze
+Aggregate 85 170
+Modify assertions 38151282
+Find 90
+Insert load 58150783
+Insert stones 61199017
+Modify crossed 42231267
+Find 29
+Insert ministers 70938594
+Insert jugs 97773448
+Delete stalking
+Aggregate 54 172
+Delete nifty
+Delete statistics
+Find 115
+Insert insulate 55563773
+Insert chanteuse 99227728
+Delete necessity
+Aggregate 59 150
+Insert stickler 53610402
+Insert richness 64131416
+Find 44
+Insert jewelers 35648417
+Aggregate 24 80
+Aggregate 10 96
+Delete backup
+Modify traded 52336350
+Insert biologists 36937000
+Insert weeks 46212518
+Find 6
+Insert repurchase 39920743
+Modify repurchase 48360076
+Aggregate 119 151
+Find 164
+Insert innovations 88707149
+Insert peering 27426017
+Delete enterprising
+Find 57
+Insert flourished 17319890
+Insert notch 77034141
+Modify homework 92680919
+Aggregate 36 45
+Find 172
+Insert detected 6049598
+Modify methodically 53851726
+Find 167
+Insert pull 7819293
+Delete viable
+Delete celebrate
+Delete detected
+Modify silence 1561332
+Insert settings 68691431
+Delete bylaws
+Find 12
+Insert commitment 43905200
+Insert cliff 18456163
+Modify wreck 32822269
+Aggregate 12 37
+Modify few 44921286
+Insert repackage 20044759
+Insert hosting 10987086
+Aggregate 34 149
+Modify predict 61460660
+Modify hotels 45408434
+Insert permanence 56971421
+Find 29
+Insert associations 2206297
+Aggregate 44 62
+Find 115
+Insert gravest 62006411
+Insert statistics 47027865
+Aggregate 115 116
+Insert taxpayer 17441335
+Aggregate 105 139
+Aggregate 81 110
+Modify bulldozed 3394818
+Find 170
+Insert loft 8591557
+Modify grower 20760913
+Find 130
+Insert commissioner 79647870
+Find 149
+Insert ladder 61400738
+Modify settings 37576869
+Modify solely 41112716
+Modify counting 5011012
+Find 45
+Insert done 19749334
+Aggregate 73 118
+Find 4
+Insert mural 65955456
+Delete hydraulic
+Aggregate 31 72
+Modify counting 51793435
+Modify alternates 74232974
+Insert modeling 77496438
+Delete syndicate
+Find 180
+Insert dope 5651209
+Insert sprightly 77908115
+Modify blossomed 31661282
+Modify caters 51427532
+Modify sensual 24421631
+Modify competed 68632507
+Find 120
+Insert education 53330411
+Aggregate 34 59
+Delete remembering
+Find 121
+Insert behavioral 64827665
+Modify settings 72945837
+Aggregate 27 75
+Find 138
+Insert ice 33565230
+Modify taxpayer 51940689
+Insert aluminum 91553108
+Insert trader 44641131
+Find 46
+Insert stereotypically 87248559
+Aggregate 127 146
+Modify puny 80246855
+Modify excerpts 69509762
+Find 174
+Insert pessimists 54513268
+Find 19
+Insert bulldozer 54526962
+Insert shorts 13808930
+Delete pubs
+Find 13
+Insert expanse 83379946
+Insert bemused 42498739
+Insert love 77560239
+Modify drained 73622330
+Insert suppressed 26137539
+Modify singled 2359713
+Insert staple 86317321
+Insert producing 67738697
+Find 141
+Insert reinstating 17451519
+Insert illogic 51790722
+Aggregate 119 130
+Aggregate 4 38
+Aggregate 202 208
+Insert laptops 75304560
+Delete educating
+Modify raped 82353016
+Aggregate 20 72
+Insert blackboard 58383441
+Delete cling
+Find 166
+Insert benign 65661572
+Delete expanse
+Find 54
+Insert concentrating 70099680
+Aggregate 27 159
+Delete mysteries
+Insert wreak 17514378
+Insert flashing 98734132
+Find 4
+Insert retained 96535828
+Insert hug 40877861
+Aggregate 23 174
+Insert pure 42280874
+Modify voluntarily 42393074
+Find 80
+Insert stringently 79342462
+Find 180
+Insert makeup 45170695
+Insert pulp 28451248
+Delete jugs
+Insert wastes 36030294
+Delete gobbled
+Modify predict 8881247
+Aggregate 79 101
+Find 173
+Insert delicate 79159575
+Find 84
+Insert viewpoint 30008232
+Aggregate 79 159
+Insert malignant 60450193
+Insert unfinished 38745340
+Find 215
+Insert gradually 75808563
+Delete whacky
+Insert remembering 12264211
+Delete pull
+Modify creatures 73201712
+Find 168
+Insert provided 48584380
+Delete milestone
+Modify weakens 42246985
+Delete catastrophes
+Find 181
+Insert predictions 81702285
+Modify wasted 88381120
+Delete zeroing
+Find 207
+Insert should 90343238
+Find 207
+Insert sticker 52519598
+Aggregate 149 163
+Aggregate 74 187
+Modify contain 60521080
+Delete comparing
+Aggregate 14 138
+Modify vacancies 71942111
+Aggregate 63 73
+Modify loom 73344322
+Aggregate 139 166
+Delete postings
+Aggregate 118 191
+Aggregate 60 195
+Insert commissioned 64537983
+Delete appreciation
+Find 143
+Insert umbrellas 35914109
+Delete impression
+Insert personality 73311685
+Aggregate 130 203
+Insert portfolios 45815988
+Aggregate 49 144
+Delete teaching
+Modify small 60269974
+Modify notch 41788470
+Delete depends
+Aggregate 196 213
+Find 28
+Insert skiing 96214876
+Modify skiing 14991306
+Delete unveiling
+Modify done 56361322
+Aggregate 4 131
+Modify adults 10874054
+Modify umbrellas 80401651
+Delete stones
+Insert enterprising 75989316
+Find 49
+Insert magicians 43060983
+Aggregate 82 169
+Find 116
+Insert milestone 42314418
+Insert hassles 1656651
+Find 122
+Insert lineman 75575110
+Aggregate 34 111
+Delete outstrips
+Modify safe 13621100
+Insert guest 44316506
+Insert stashed 19102466
+Modify puns 60984404
+Delete accruing
+Modify boringly 66157335
+Modify plugged 77861804
+Find 127
+Insert lock 31707343
+Aggregate 21 29
+Find 22
+Insert fax 99871923
+Aggregate 97 167
+Insert player 77292715
+Aggregate 85 88
+Find 35
+Insert nurtured 85743697
+Find 123
+Insert arsenal 12223942
+Aggregate 87 156
+Delete singled
+Aggregate 92 145
+Insert catastrophes 86980975
+Insert hitched 43809265
+Modify warfare 66429130
+Modify fed 69046741
+Insert delay 70187263
+Find 93
+Insert doom 97136999
+Modify gravest 65278987
+Modify knocking 32758117
+Delete education
+Find 30
+Insert inning 31806559
+Modify trader 85324749
+Aggregate 62 230
+Modify concentrating 60073134
+Aggregate 45 144
+Find 52
+Insert creativity 81097966
+Find 177
+Insert mysteries 92670536
+Delete teased
+Find 232
+Insert syndicate 31259320
+Modify eclectic 50962006
+Delete reinstating
+Aggregate 68 109
+Delete crossed
+Delete makeup
+Modify distributer 80154858
+Find 111
+Insert perpetuating 80454635
+Insert comedic 9716132
+Aggregate 115 229
+Insert frightening 36863830
+Delete unfinished
+Insert affects 65578567
+Modify statistics 5214453
+Find 45
+Insert privatize 13921808
+Find 105
+Insert demographically 14240883
+Aggregate 44 161
+Insert hydraulic 7538109
+Aggregate 111 199
+Delete soybeans
+Insert originations 44558016
+Aggregate 55 64
+Modify mysteries 91602983
+Delete grovels
+Insert artful 57406766
+Modify safe 98233033
+Find 120
+Insert unfinished 17110620
+Modify repurchase 39760741
+Modify dons 932792
+Modify hotels 96553395
+Delete sack
+Aggregate 56 232
+Delete boringly
+Aggregate 25 168
+Modify commissioner 55832022
+Modify tomorrow 60231573
+Delete modeling
+Aggregate 50 90
+Delete illogic
+Aggregate 3 48
+Delete lock
+Aggregate 19 224
+Find 112
+Insert climb 21976997
+Aggregate 89 226
+Modify counting 90428907
+Delete safe
+Modify settings 96104221
+Modify provided 17441956
+Modify fad 56944568
+Aggregate 126 160
+Insert sack 70661836
+Find 4
+Insert journals 29686156
+Insert landfills 38372397
+Insert terminating 87278542
+Insert hog 12074539
+Find 226
+Insert pull 30241374
+Find 180
+Insert modeling 14085705
+Modify bemused 52118693
+Delete bulldozed
+Delete profiles
+Modify perpetuating 17631202
+Modify privatize 85427101
+Find 95
+Insert perfected 58870586
+Delete creativity
+Find 138
+Insert microcomputer 70504389
+Delete loud
+Insert metropolitan 78985143
+Modify weakens 79108839
+Insert loud 57468349
+Insert looseleaf 49563063
+Find 106
+Insert unattainable 63767865
+Insert lots 17691967
+Modify expects 7585204
+Aggregate 102 137
+Insert logs 40579422
+Insert yard 69273548
+Insert opponents 72784538
+Find 121
+Insert solarheated 35152843
+Find 121
+Insert howdy 20081770
+Find 237
+Insert soybeans 879328
+Modify blackboard 76168503
+Aggregate 83 195
+Delete gravely
+Modify flashing 79734199
+Aggregate 81 90
+Delete ministers
+Insert growth 69553725
+Find 53
+Insert superceded 4711645
+Find 55
+Insert hoc 99739883
+Modify responsive 13126764
+Delete contain
+Find 231
+Insert freeze 72470654
+Aggregate 80 214
+Delete impressive
+Find 39
+Insert growls 81360805
+Modify spraying 26888245
+Find 151
+Insert luck 97378069
+Insert progressives 18806663
+Delete directs
+Modify ladder 83755241
+Modify despicable 65719941
+Aggregate 210 211
+Insert contender 64301086
+Modify howdy 83114151
+Modify associations 40593593
+Find 139
+Insert push 74846975
+Aggregate 108 252
+Delete done
+Aggregate 30 159
+Modify wineries 18779175
+Modify round 60985078
+Find 80
+Insert lost 50790223
+Aggregate 60 174
+Delete handsome
+Modify reallocated 72221981
+Aggregate 28 120
+Delete metropolitan
+Aggregate 6 70
+Find 61
+Insert played 38145606
+Modify personality 53797493
+Delete permanence
+Delete homework
+Delete inning
+Insert marketization 23914534
+Find 175
+Insert advisable 82543054
+Find 62
+Insert delta 65837595
+Find 209
+Insert festivity 84092368
+Insert finances 75867550
+Delete distributes
+Insert outstrips 89943786
+Aggregate 70 192
+Aggregate 125 213
+Find 164
+Insert illogic 13067971
+Insert chemical 76880315
+Aggregate 96 244
+Delete luck
+Aggregate 13 119
+Find 86
+Insert hearings 84065103
+Aggregate 27 131
+Aggregate 29 70
+Find 43
+Insert handsome 89456112
+Delete wasted
+Find 169
+Insert restructure 8940899
+Delete bulldozer
+Aggregate 27 126
+Insert puff 69701126
+Modify loft 14021839
+Delete contender
+Delete drained
+Delete bedeviled
+Find 155
+Insert gadgets 39738800
+Delete perpetual
+Modify shorts 24761591
+Modify dolt 18302947
+Insert orphan 59133697
+Aggregate 106 230
+Aggregate 151 233
+Insert financer 94080745
+Aggregate 120 173
+Aggregate 167 194
+Modify dangling 5273836
+Find 53
+Insert cockiness 88449209
+Insert aerodynamic 97150841
+Find 226
+Insert bulldozed 7273806
+Modify arsenal 34454115
+Find 191
+Insert makeup 13447878
+Aggregate 30 62
+Insert blue 42773715
+Modify hearings 14984256
+Insert collect 81158274
+Insert fraudulent 48022880
+Delete wreck
+Insert jugs 85135213
+Insert bylaws 23116394
+Delete voluntarily
+Aggregate 36 160
+Find 108
+Insert viable 35259771
+Modify eclectic 98126796
+Modify lost 1648797
+Find 9
+Insert sapped 94951922
+Insert spilled 61626283
+Delete sensual
+Insert distractions 97981151
+Find 55
+Insert anachronisms 79703526
+Delete gravest
+Find 11
+Insert capital 56295609
+Find 16
+Insert relenting 92979169
+Insert logo 71595362
+Aggregate 154 201
+Insert shrunk 12478208
+Find 190
+Insert token 2899128
+Delete excerpts
+Modify jewelers 81856374
+Find 114
+Insert brothers 49685157
+Insert profiles 54973737
+Find 198
+Insert outpost 49981813
+Find 204
+Insert edged 39429164
+Delete superstars
+Modify played 98406129
+Delete lineman
+Delete microcomputer
+Modify hearings 6158339
+Insert lore 33920543
+Delete warfare
+Find 222
+Insert expanse 19646670
+Delete malignant
+Modify mysteries 43908150
+Find 128
+Insert assessing 29440306
+Aggregate 2 245
+Insert dislocation 13770131
+Insert haven 89602280
+Aggregate 11 60
+Find 100
+Insert ministers 28404425
+Delete frightening
+Modify arsenal 66044694
+Aggregate 61 65
+Modify sticker 41272578
+Modify multisided 90640737
+Modify sack 31735055
+Find 22
+Insert brainchild 85236976
+Insert grovels 12420902
+Find 124
+Insert ill 78066833
+Find 258
+Insert processor 48568612
+Modify counting 14298555
+Aggregate 118 189
+Find 179
+Insert nifty 8958619
+Find 199
+Insert proliferated 11293305
+Insert disdaining 86338102
+Aggregate 191 194
+Insert hostile 97920339
+Modify festive 54874762
+Modify milestone 66037133
+Delete demographically
+Modify slogans 40400978
+Aggregate 74 180
+Modify gleefully 93308248
+Aggregate 236 267
+Delete puff
+Find 129
+Insert does 16879171
+Aggregate 202 260
+Delete perfected
+Find 168
+Insert ankles 77228281
+Delete eclectic
+Modify contractors 74755687
+Delete delay
+Find 196
+Insert contact 75684261
+Delete growls
+Delete despicable
+Insert apparitions 20956386
+Modify raped 29980311
+Find 55
+Insert evensong 23384411
+Aggregate 111 168
+Modify laptops 20201536
+Delete predict
+Delete lost
+Aggregate 1 113
+Aggregate 90 276
+Find 251
+Insert gobbled 41915302
+Find 228
+Insert solemn 38368067
+Modify handsome 2971357
+Find 25
+Insert impressive 39415498
+Delete festive
+Delete landowner
+Aggregate 11 157
+Find 97
+Insert demeanors 2267304
+Insert accruing 31685295
+Delete hassles
+Aggregate 98 207
+Aggregate 206 230
+Modify statistics 84535751
+Insert punk 42890877
+Find 79
+Insert havoc 96551555
+Insert zeroing 75662711
+Modify marketization 75638226
+Aggregate 165 195
+Modify caters 35340604
+Insert guess 35120895
+Delete perfectly
+Find 252
+Insert workbooks 54197499
+Modify puny 43190556
+Modify aerodynamic 67856001
+Insert multipleuser 30362147
+Insert ensembles 8351995
+Find 155
+Insert rapid 48853641
+Find 52
+Insert lineman 56976947
+Delete junk
+Aggregate 115 129
+Aggregate 27 30
+Find 57
+Insert objectivity 36703454
+Aggregate 60 266
+Aggregate 173 191
+Modify hitched 52399835
+Delete dangling
+Find 273
+Insert frightening 92678248
+Find 200
+Insert contain 51287206
+Delete logo
+Insert repertoire 66015425
+Find 90
+Insert crossed 25119905
+Insert solidify 34925897
+Delete pull
+Delete marketization
+Insert notes 2034155
+Aggregate 124 172
+Delete grovels
+Delete secondary
+Modify growth 4718092
+Modify looseleaf 53525366
+Delete nurtured
+Insert administrations 57032830
+Find 22
+Insert reinstating 17494398
+Delete hostile
+Modify finances 90707422
+Insert safe 52615878
+Aggregate 50 232
+Modify does 97236457
+Aggregate 84 238
+Modify ministers 86049039
+Find 188
+Insert singled 92836668
+Delete financed
+Aggregate 19 282
+Delete should
+Insert perfectly 25336420
+Find 118
+Insert reimpose 99635221
+Delete disdaining
+Find 257
+Insert grovels 80098793
+Aggregate 100 219
+Aggregate 72 144
+Modify gradually 58813401
+Aggregate 3 103
+Insert maximum 96132450
+Find 6
+Insert magical 1137710
+Insert motors 91570028
+Aggregate 210 213
+Find 92
+Insert motorist 84075234
+Aggregate 148 268
+Find 5
+Insert imploring 10604608
+Aggregate 125 274
+Insert loss 80500282
+Insert profiled 68068032
+Aggregate 259 290
+Modify stashed 48654222
+Find 82
+Insert fan 25629601
+Aggregate 110 211
+Aggregate 14 38
+Modify blackboard 44658712
+Modify weeks 81366616
+Modify perilously 10687558
+Modify hydraulic 85793414
+Insert fripperies 88873567
+Aggregate 86 285
+Insert misunderstood 10656478
+Delete reimpose
+Modify administrations 84628462
+Delete convocation
+Delete modeling
+Insert celebrate 80813743
+Delete suppressed
+Aggregate 108 149
+Modify load 31218639
+Modify distributer 78981786
+Aggregate 39 73
+Modify celebrate 61610033
+Aggregate 120 235
+Delete kingpin
+Find 143
+Insert gravest 91306588
+Aggregate 23 37
+Modify raped 17073382
+Find 114
+Insert proprietary 82945364
+Find 215
+Insert labeling 81674133
+Aggregate 12 133
+Modify dons 5929838
+Aggregate 66 146
+Aggregate 222 256
+Modify alternates 60087344
+Find 78
+Insert somersaulting 70204035
+Modify frightening 32534022
+Find 106
+Insert appreciation 89982805
+Aggregate 155 169
+Find 215
+Insert said 70187913
+Aggregate 77 124
+Aggregate 100 146
+Modify bristle 78340344
+Delete doom
+Insert poorly 55383223
+Find 55
+Insert demagogues 44386826
+Modify bulldozed 5968359
+Aggregate 60 179
+Insert cling 62275853
+Modify spraying 5263581
+Insert landowner 9513545
+Delete richness
+Aggregate 26 212
+Find 275
+Insert teaching 4454206
+Aggregate 4 85
+Modify hampers 60019003
+Find 165
+Insert witch 31256182
+Insert artificial 59242823
+Modify offsets 41014279
+Insert attraction 60495982
+Aggregate 161 196
+Find 97
+Insert convocation 28191213
+Insert look 26293392
+Find 207
+Insert richness 25604421
+Insert eclectic 2548682
+Aggregate 204 214
+Modify responsive 56332104
+Aggregate 259 263
+Insert mechanisms 89399235
+Find 122
+Insert members 91777541
+Modify shrunk 61112084
+Delete handsome
+Insert necessity 57241275
+Aggregate 229 290
+Insert modeling 40022675
+Delete bulldozed
+Insert hostile 95009388
+Insert southern 97235874
+Delete poorly
+Find 152
+Insert coasted 43359698
+Modify skiing 92774962
+Find 147
+Insert provider 94029158
+Delete hydraulic
+Modify lows 88489122
+Delete counting
+Insert sensual 66656254
+Modify singled 29209194
+Find 307
+Insert amours 47835188
+Find 50
+Insert runaway 88194762
+Modify biologists 2672396
+Find 295
+Insert catastrophic 1225522
+Insert providing 78582468
+Aggregate 61 135
+Insert excerpts 59529763
+Modify syndicate 49927232
+Delete alternates
+Find 38
+Insert pounding 75982767
+Insert venture 36183211
+Insert logo 79577926
+Insert reimpose 14871877
+Delete distractions
+Delete trades
+Aggregate 116 257
+Modify provider 32347039
+Aggregate 89 151
+Modify few 53958546
+Insert comparing 94361537
+Delete love
+Modify stashed 13918240
+Aggregate 86 300
+Delete puns
+Delete proliferated
+Modify lore 44236289
+Delete bemused
+Find 60
+Insert lock 87414781
+Find 104
+Insert strategy 81678384
+Insert poorer 78437134
+Find 14
+Insert hitches 83265860
+Insert college 36493815
+Aggregate 86 289
+Find 48
+Insert sage 57350626
+Modify teaching 14840974
+Delete originations
+Insert despicable 49760151
+Insert loop 38227984
+Modify sack 49290846
+Aggregate 106 147
+Modify stashed 67844830
+Find 248
+Insert distractions 74296448
+Find 200
+Insert directs 68513847
+Delete hoc
+Modify shrunk 41247605
+Delete delta
+Insert termination 34453918
+Insert demographically 42525784
+Delete unfinished
+Delete fan
+Insert hub 38113558
+Aggregate 48 250
+Find 71
+Insert education 49743806
+Aggregate 82 217
+Modify freeze 65512625
+Aggregate 16 32
+Delete piecemeal
+Delete nifty
+Insert disdaining 24899298
+Insert delay 94876266
+Delete loft
+Delete hub
+Modify token 96661880
+Delete hitched
+Aggregate 203 215
+Find 321
+Insert rough 12372593
+Find 97
+Insert hub 92171248
+Find 10
+Insert poorly 1215393
+Modify forgotten 84419210
+Delete richness
+Find 139
+Insert growls 15758150
+Find 25
+Insert makers 49929100
+Find 3
+Insert warfare 30745070
+Delete hampers
+Aggregate 116 181
+Delete shouts
+Modify round 83733707
+Find 79
+Insert suppressor 3950562
+Find 64
+Insert shouts 42260555
+Aggregate 116 121
+Find 23
+Insert inning 29539772
+Modify lender 95953897
+Aggregate 114 242
+Delete producing
+Delete radiation
+Find 36
+Insert proliferated 2069344
+Insert puns 27595773
+Aggregate 141 154
+Modify peripherals 62893332
+Find 109
+Insert junk 74627121
+Delete tomorrow
+Find 300
+Insert metropolitan 62776166
+Insert weakest 86650651
+Delete motorist
+Find 310
+Insert impression 2781866
+Find 327
+Insert smash 89151747
+Aggregate 201 327
+Insert expands 32995005
+Aggregate 16 219
+Aggregate 292 319
+Modify fripperies 6133855
+Modify financer 81685248
+Insert guarantee 58492325
+Aggregate 25 267
+Delete multisided
+Insert distributes 40834714
+Modify overrode 42595834
+Find 165
+Insert originations 39043038
+Insert inspection 45812126
+Modify landfills 6843585
+Insert ornaments 45045444
+Aggregate 104 166
+Delete fad
+Modify frightening 25058066
+Insert richness 45300416
+Find 105
+Insert malignant 47280631
+Insert dogs 71718469
+Insert wasted 38199586
+Find 31
+Insert puff 63630021
+Find 284
+Insert bumble 22181462
+Delete hosting
+Delete token
+Insert done 71539831
+Delete blue
+Modify affects 56884746
+Insert makeshift 30358402
+Find 309
+Insert door 35244143
+Find 223
+Insert perfected 13650329
+Delete remembering
+Delete reallocated
+Aggregate 71 286
+Aggregate 243 317
+Find 19
+Insert bulldozer 3661584
+Insert wreck 84825061
+Delete puns
+Insert defensible 69099376
+Modify brought 98933038
+Delete evaporate
+Modify mysteries 12325369
+Delete shorts
+Modify inspecting 73473519
+Aggregate 306 327
+Delete player
+Modify notch 78292577
+Find 237
+Insert should 29092673
+Find 1
+Insert regulations 32556134
+Delete benign
+Insert producing 73537823
+Aggregate 161 163
+Delete progressives
+Modify reinstating 83023468
+Modify guarantee 30369388
+Aggregate 258 303
+Modify said 67212037
+Modify misunderstood 56857973
+Modify artful 13227930
+Insert puns 91222646
+Aggregate 90 225
+Modify landowner 18400461
+Aggregate 118 204
+Insert pull 4842404
+Modify sprightly 84337081
+Delete saga
+Modify offsets 84384106
+Find 207
+Insert dragged 19988522
+Modify festivity 47694287
+Delete eclectic
+Aggregate 42 60
+Delete sipping
+Aggregate 146 256
+Find 67
+Insert underscore 60431384
+Delete contain
+Delete grower
+Delete ministers
+Aggregate 55 332
+Delete vehemently
+Insert collectivizers 95851903
+Find 16
+Insert rhetoric 74080863
+Find 296
+Insert unfinished 34920807
+Modify said 62962122
+Find 75
+Insert noted 10099960
+Modify excerpts 97135372
+Insert rulings 23751882
+Insert superstars 85289614
+Delete regulations
+Aggregate 88 344
+Find 344
+Insert wrapped 54160463
+Aggregate 144 303
+Find 238
+Insert having 40116729
+Find 181
+Insert evaporate 1052618
+Insert handsome 39959831
+Modify assertions 24817328
+Find 142
+Insert leverage 22218191
+Modify accruing 9061764
+Aggregate 116 141
+Aggregate 234 244
+Find 292
+Insert how 2871062
+Delete havoc
+Insert sipping 38088164
+Modify aparently 98421533
+Insert subminimum 27235244
+Modify termination 36919279
+Delete edged
+Delete modeling
+Find 252
+Insert route 61966430
+Delete perilously
+Find 116
+Insert educating 80814162
+Insert impounded 22844517
+Find 50
+Insert drained 37343256
+Insert counting 4990277
+Modify predictions 39275062
+Modify climb 48870910
+Modify cockiness 45722676
+Aggregate 200 323
+Aggregate 14 156
+Find 136
+Insert modeling 88179367
+Insert perilously 1344345
+Find 182
+Insert field 36149647
+Insert motorist 34236278
+Delete pull
+Insert workmen 96169674
+Find 36
+Insert multisided 94855502
+Aggregate 254 331
+Insert depends 46837810
+Aggregate 133 193
+Insert token 81774494
+Delete confrontation
+Find 263
+Insert vehemently 9148169
+Aggregate 16 336
+Delete dismaying
+Find 132
+Insert concealing 88517324
+Aggregate 148 278
+Delete token
+Modify distractions 41029260
+Delete drained
+Find 58
+Insert hosting 34596458
+Aggregate 120 348
+Modify superceded 23817662
+Modify attracting 46284536
+Delete crossed
+Modify overrode 78180636
+Delete provided
+Modify dome 15518375
+Delete contractors
+Find 161
+Insert radiation 5904457
+Aggregate 50 239
+Insert fad 40456992
+Delete outpost
+Delete fax
+Modify motorist 3077372
+Find 48
+Insert backup 1162450
+Insert suppressed 23791440
+Aggregate 128 251
+Aggregate 147 244
+Aggregate 133 303
+Aggregate 218 349
+Find 196
+Insert pull 98193579
+Insert postings 16625661
+Modify pessimists 8460367
+Delete wasted
+Aggregate 288 299
+Aggregate 71 122
+Modify statistics 90820823
+Delete fee
+Aggregate 7 109
+Insert blue 75596383
+Delete flashing
+Insert tomorrow 73046939
+Insert rendered 93991180
+Insert remembering 56513913
+Aggregate 142 187
+Delete portfolios
+Delete having
+Find 283
+Insert provides 98702139
+Find 38
+Insert lunchroom 23296364
+Delete assessing
+Aggregate 37 228
+Delete transatlantic
+Find 57
+Insert shrugs 14819536
+Aggregate 14 159
+Find 168
+Insert transatlantic 27562516
+Modify pounding 56289220
+Aggregate 164 174
+Find 130
+Insert token 48111381
+Modify deadliest 72239094
+Insert chance 18557784
+Delete token
+Aggregate 264 352
+Find 28
+Insert hot 69003586
+Insert flashing 74294700
+Insert boringly 74130744
+Insert festive 61266281
+Modify education 11464191
+Insert dilemma 46558252
+Insert havoc 86939731
+Aggregate 174 341
+Delete biologists
+Insert love 27802540
+Find 126
+Insert marketization 81669504
+Find 343
+Insert prevailing 87679559
+Delete knocking
+Find 354
+Insert detected 85081976
+Insert arbitragers 80715074
+Insert discouraging 95786578
+Aggregate 21 42
+Insert vague 93788159
+Insert piecemeal 16512331
+Insert contractors 72677678
+Aggregate 103 270
+Aggregate 27 261
+Modify solely 9720627
+Aggregate 97 105
+Insert doll 5074603
+Delete landfills
+Aggregate 6 224
+Aggregate 163 255
+Modify arbitragers 22521687
+Insert perpetual 34405521
+Aggregate 155 269
+Modify malignant 34171842
+Aggregate 76 148
+Find 209
+Insert implement 23199357
+Aggregate 60 307
+Delete arsenal
+Modify processor 23633856
+Aggregate 92 283
+Insert portfolios 60661135
+Aggregate 355 372
+Insert fat 10578998
+Find 54
+Insert hassles 82579119
+Find 33
+Insert lost 71774488
+Insert delta 23328491
+Insert assessing 4113229
+Aggregate 295 356
+Insert subterranean 86959221
+Aggregate 7 122
+Find 203
+Insert creativity 18418901
+Aggregate 214 227
+Delete innovations
+Insert bedeviled 78107125
+Insert biologists 78314753
+Find 26
+Insert voluntarily 504006
+Modify looseleaf 5253402
+Delete load
+Insert nurtured 77887643
+Find 284
+Insert trilogy 86324540
+Delete behavioral
+Aggregate 29 265
+Insert having 30328200
+Modify change 96147870
+Modify rough 34653038
+Find 338
+Insert amount 69735901
+Find 347
+Insert unveiling 39643285
+Modify distributer 3820401
+Delete aparently
+Insert lose 39675205
+Insert doom 89123191
+Delete indeed
+Aggregate 115 267
+Find 139
+Insert retainer 19641000
+Delete murky
+Delete education
+Aggregate 299 386
+Insert behavioral 44823605
+Insert teased 90997800
+Insert crossed 11076537
+Aggregate 150 271
+Find 74
+Insert ministers 69848982
+Modify gobbled 60056057
+Find 253
+Insert violence 10199728
+Insert paeans 33770008
+Aggregate 2 171
+Aggregate 5 109
+Insert appreciating 32182924
+Insert lone 78777683
+Delete associations
+Find 342
+Insert nifty 29475817
+Delete collect
+Insert whiplash 21986409
+Modify belfry 86688576
+Modify motors 88557217
+Aggregate 144 397
+Find 52
+Insert landfills 95342169
+Find 215
+Insert crooned 39408705
+Find 118
+Insert education 43606364
+Find 198
+Insert progressives 60694040
+Delete processor
+Find 316
+Insert murky 42873983
+Modify advisable 28090429
+Insert financed 43999220
+Delete methodically
+Modify loot 66208212
+Insert dangling 59574743
+Find 243
+Insert homework 22765363
+Aggregate 223 378
+Find 20
+Insert whacky 143749
+Aggregate 98 150
+Delete hotels
+Find 7
+Insert kingpin 3365343
+Modify provider 35797284
+Delete bylaws
+Find 197
+Insert saga 25738998
+Delete boringly
+Insert predict 53930691
+Delete pounding
+Find 236
+Insert contender 23566332
+Aggregate 138 385
+Modify financer 8699485
+Aggregate 93 302
+Delete deletions
+Insert wrappers 84591148
+Aggregate 198 211
+Insert edged 43819487
+Aggregate 91 352
+Aggregate 4 15
+Delete demographically
+Insert hitched 21648797
+Insert permanence 97936138
+Find 117
+Insert loft 91335026
+Aggregate 99 183
+Modify artificial 92453505
+Find 198
+Insert regulations 56194099
+Modify underscore 95569426
+Insert confrontation 74254981
+Modify milestone 56280040
+Aggregate 179 408
+Delete richness
+Insert pounding 88557019
+Insert wasted 66365355
+Insert bulldozed 81444118
+Insert load 64554809
+Aggregate 173 312
+Aggregate 49 271
+Delete deadliest
+Insert aparently 35955125
+Find 86
+Insert associations 32254357
+Aggregate 367 374
+Modify logs 75173888
+Delete safe
+Find 206
+Insert stalking 94820048
+Insert chisel 7935381
+Find 312
+Insert trades 58739079
+Insert indeed 24847259
+Modify loom 81536417
+Insert alternates 87513414
+Delete flourished
+Aggregate 10 398
+Delete expects
+Find 145
+Insert shorts 33179105
+Delete skiing
+Insert stones 98484602
+Modify transatlantic 13929499
+Delete alternates
